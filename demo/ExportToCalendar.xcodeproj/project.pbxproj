@@ -13,6 +13,7 @@
 		20828B3C1B6BD2EA008169DE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 20828B3B1B6BD2EA008169DE /* Images.xcassets */; };
 		20828B3F1B6BD2EA008169DE /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20828B3D1B6BD2EA008169DE /* LaunchScreen.xib */; };
 		20828B4B1B6BD2EA008169DE /* ExportToCalendarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20828B4A1B6BD2EA008169DE /* ExportToCalendarTests.swift */; };
+		20B6C9361B82205600A70658 /* CalendarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B6C9351B82205600A70658 /* CalendarManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		20828B441B6BD2EA008169DE /* ExportToCalendarTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExportToCalendarTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		20828B491B6BD2EA008169DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		20828B4A1B6BD2EA008169DE /* ExportToCalendarTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportToCalendarTests.swift; sourceTree = "<group>"; };
+		20B6C9351B82205600A70658 /* CalendarManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 				20828B3B1B6BD2EA008169DE /* Images.xcassets */,
 				20828B3D1B6BD2EA008169DE /* LaunchScreen.xib */,
 				20828B321B6BD2EA008169DE /* Supporting Files */,
+				20B6C9351B82205600A70658 /* CalendarManager.swift */,
 			);
 			path = ExportToCalendar;
 			sourceTree = "<group>";
@@ -213,6 +216,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				20B6C9361B82205600A70658 /* CalendarManager.swift in Sources */,
 				20828B371B6BD2EA008169DE /* ViewController.swift in Sources */,
 				20828B351B6BD2EA008169DE /* AppDelegate.swift in Sources */,
 			);
@@ -418,6 +422,7 @@
 				20828B501B6BD2EA008169DE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		20828B511B6BD2EA008169DE /* Build configuration list for PBXNativeTarget "ExportToCalendarTests" */ = {
 			isa = XCConfigurationList;
@@ -426,6 +431,7 @@
 				20828B531B6BD2EA008169DE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

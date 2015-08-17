@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -17,21 +18,81 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CK3-Mb-t70">
-                                <rect key="frame" x="224.5" y="285" width="151" height="30"/>
-                                <state key="normal" title="Create Random Event">
+                                <rect key="frame" x="255" y="28" width="89" height="30"/>
+                                <state key="normal" title="Create Event">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="createRandomEvent:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Acg-Bj-Ls4"/>
                                 </connections>
                             </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="7ip-Wl-Tbv">
+                                <rect key="frame" x="0.0" y="78" width="599" height="522"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="eventCell" textLabel="Ihs-mB-bMP" detailTextLabel="MTb-hW-j8d" style="IBUITableViewCellStyleSubtitle" id="3kf-CD-QBL">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3kf-CD-QBL" id="0lp-Lr-MJP">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ihs-mB-bMP">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="MTb-hW-j8d">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="3Ip-vy-bxc"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="4wt-Kd-LJn"/>
+                                </connections>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Qb-AF-yCV">
+                                <rect key="frame" x="547" y="28" width="37" height="30"/>
+                                <state key="normal" title="Clear">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="deleteAllEvents:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zrd-tk-UOx"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oe4-cR-P1K">
+                                <rect key="frame" x="16" y="28" width="62" height="30"/>
+                                <state key="normal" title="Calendar">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="calendarNameHandler:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WVQ-W5-g6t"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="centerX" secondItem="CK3-Mb-t70" secondAttribute="centerX" id="3E9-J4-rCw"/>
-                            <constraint firstAttribute="centerY" secondItem="CK3-Mb-t70" secondAttribute="centerY" id="r1J-wA-2UD"/>
+                            <constraint firstItem="5Qb-AF-yCV" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="KJ1-c2-dl2"/>
+                            <constraint firstItem="Oe4-cR-P1K" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="QML-DY-98G"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="7ip-Wl-Tbv" secondAttribute="trailingMargin" id="T7e-cc-63d"/>
+                            <constraint firstItem="CK3-Mb-t70" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="Wt4-dr-LvV"/>
+                            <constraint firstItem="7ip-Wl-Tbv" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="dlZ-aL-gdg"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="7ip-Wl-Tbv" secondAttribute="bottom" id="glt-Oo-qfv"/>
+                            <constraint firstItem="7ip-Wl-Tbv" firstAttribute="top" secondItem="CK3-Mb-t70" secondAttribute="bottom" constant="20" id="mpb-Ya-v2x"/>
+                            <constraint firstItem="CK3-Mb-t70" firstAttribute="centerY" secondItem="5Qb-AF-yCV" secondAttribute="centerY" id="pNp-4T-2dS"/>
+                            <constraint firstItem="CK3-Mb-t70" firstAttribute="centerY" secondItem="Oe4-cR-P1K" secondAttribute="centerY" id="rlF-K9-9DH"/>
+                            <constraint firstItem="CK3-Mb-t70" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="tZk-Hb-6Qx"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="calendarName" destination="Oe4-cR-P1K" id="8zd-sk-XSd"/>
+                        <outlet property="eventsTable" destination="7ip-Wl-Tbv" id="rkk-0E-88o"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

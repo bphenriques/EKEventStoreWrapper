@@ -1,148 +1,115 @@
 import UIKit
 import EventKit
 
-public class CalendarManager{
-    let eventStore = EKEventStore()
-    let calendarName: String
-    let sourceType: EKSourceType
-    
-    
-    /**
-        Init
-        
-        :param: `String`:            name of the calendar
-        :param: `EKSourceType opt`:  sourceType, by default is EKSourceTypeCalDav (iCloud)
-    */
-    public init(calendarName: String, sourceType: EKSourceType = EKSourceTypeCalDAV){
-        self.calendarName = calendarName
-        self.sourceType = sourceType
-    }
-    
-    public func requestAuthorization(completion: (error: NSError?) -> ()){
-        switch EKEventStore.authorizationStatusForEntityType(EKEntityTypeEvent) {
-        case .Authorized:
-            println("Authorized access to calendar")
-            completion(error: nil)
-        case .Denied:
-            println("Denied access to calendar")
-            let userInfo = [
-                NSLocalizedDescriptionKey: "Denied access to calendar",
-                NSLocalizedFailureReasonErrorKey: "Authorization was rejected",
-                NSLocalizedRecoverySuggestionErrorKey: "Try accepting authorization"
-            ]
-            completion(error: NSError(domain: "CalendarAuthorization", code: 666, userInfo: userInfo))
-        case .NotDetermined:
-            println("Requesting permission")
-            eventStore.requestAccessToEntityType(EKEntityTypeEvent, completion: {[weak self] (granted: Bool, error: NSError!) -> Void in
-                completion(error: granted ? nil : error)
-            })
-        default:
-            println("default")
-            let userInfo = [
-                NSLocalizedDescriptionKey: "Default behaviour in authorization",
-                NSLocalizedFailureReasonErrorKey: "We don't know",
-                NSLocalizedRecoverySuggestionErrorKey: "Call 911"
-            ]
-            completion(error: NSError(domain: "CalendarAuthorization", code: 69, userInfo: userInfo))
-        }
-    }
-    
-    public func addCalendar(completion: ((wasSaved: Bool, error: NSError?) -> ())? = nil) {
-        //create calendar
-        let newCalendar = EKCalendar(forEntityType: EKEntityTypeEvent, eventStore: eventStore)
-        newCalendar.title = calendarName
-        
-        // Access list of available sources from the Event Store
-        let sourcesInEventStore = eventStore.sources() as! [EKSource]
-        
-        // Filter the available sources and select the ones pretended. The instance MUST com from eventStore
-        newCalendar.source = sourcesInEventStore.filter { $0.sourceType.value == self.sourceType.value }.first
-        
-        // Save the calendar using the Event Store instance
-        var error: NSError? = nil
-        let calendarWasSaved = eventStore.saveCalendar(newCalendar, commit: true, error: &error)
-        
-        dispatch_async(dispatch_get_main_queue(), { _ in
-            completion?(wasSaved: calendarWasSaved, error: error)
-        })
-    }
-    
-    public func createEvent() -> EKEvent{
-        return EKEvent(eventStore: eventStore)
-    }
-    
-    public func removeEvent(eventId: String, completion: ((wasRemoved: Bool, error: NSError?)-> ())? = nil){
-        let calendars = eventStore.calendarsForEntityType(EKEntityTypeEvent) as! [EKCalendar]
-        
-        // Remove event from Calendar
-        let event = eventStore.eventWithIdentifier(eventId)
-        var error: NSError?
-        let eventWasRemoved = eventStore.removeEvent(event, span: EKSpanThisEvent, commit: true, error: &error)
-        
-        dispatch_async(dispatch_get_main_queue(), { _ in
-            completion?(wasRemoved: eventWasRemoved, error: error)
-        })
-    }
-    
-    public func removeCalendar(commit: Bool = true, completion: ((wasRemoved: Bool, error: NSError?)-> ())? = nil){
-        let calendars = eventStore.calendarsForEntityType(EKEntityTypeEvent) as! [EKCalendar]
-        let calendar = calendars.filter({ $0.title == self.calendarName }).first
-        
-        var error: NSError?
-        let wasRemoved = eventStore.removeCalendar(calendar, commit: commit, error: &error)
-    
-        completion?(wasRemoved: wasRemoved, error: error)
-    }
-    
-    public func insertEvent(event: EKEvent, completion: ((wasSaved: Bool, error: NSError?)-> ())? = nil) {
-        let calendars = eventStore.calendarsForEntityType(EKEntityTypeEvent) as! [EKCalendar]
-        
-        for calendar in calendars {
-            if calendar.title == calendarName {
-                event.calendar = calendar
-                
-                // Save Event in Calendar
-                var error: NSError?
-                let eventWasSaved = eventStore.saveEvent(event, span: EKSpanThisEvent, error: &error)
-                
-                
-                dispatch_async(dispatch_get_main_queue(), { _ in
-                    completion?(wasSaved: eventWasSaved, error: error)
-                })
-                
-                break
-            }
-        }
-    }
-}
-
-// Handle situation if the calendar could not be saved
-/*
-if !calendarWasSaved {
-    let alert = UIAlertController(title: "Calendar could not save", message: error?.localizedDescription, preferredStyle: .Alert)
-    let OKAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
-    alert.addAction(OKAction)
-    
-    self.presentViewController(alert, animated: true, completion: nil)
-} else {
-    
-    let alert = UIAlertController(title: "Calendar saved ", message: ":)", preferredStyle: .Alert)
-    let OKAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
-    alert.addAction(OKAction)
-    
-    self.presentViewController(alert, animated: true, completion: nil)
-    
-    NSUserDefaults.standardUserDefaults().setObject(newCalendar.calendarIdentifier, forKey: "EventTrackerPrimaryCalendar")
-}*/
-
 
 class ViewController: UIViewController {
 
-    let calendarManager = CalendarManager(calendarName: "CalendarTest")
+    @IBOutlet weak var calendarName: UIButton!
+    @IBOutlet weak var eventsTable: UITableView!
+    
+    let CalendarTitle = "CalendarTest"
+    
+    var calendarManager: CalendarManager!
+    var createdEvents = [EKEvent]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        calendarManager = CalendarManager(calendarName: CalendarTitle)
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        self.refreshEvents()
+    }
+    
+    @IBAction func calendarNameHandler(sender: AnyObject){
+        if let calendar = calendarManager.calendar {
+            let alert = UIAlertController(title: "Do you want to delete the calendar?", message: "", preferredStyle: .Alert)
+            let OKAction = UIAlertAction(title: "Yes", style: .Destructive, handler: { _ in
+                self.removeCalendar()
+                self.refreshEvents()
+            })
+            alert.addAction(OKAction)
+
+            let CancelAction = UIAlertAction(title: "No", style: .Cancel, handler: nil)
+            alert.addAction(CancelAction)
+
+            self.presentViewController(alert, animated: true, completion: nil)
+        }else {
+            createCalendar()
+        }
+    }
+    
+    @IBAction func deleteAllEvents(sender: AnyObject) {
+        clearCalendarEvents()
+    }
+    
+    @IBAction func createRandomEvent(sender: AnyObject) {
+        createEvent()
+    }
+}
+
+extension ViewController: UITableViewDataSource {
+ 
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return createdEvents.count
+    }
+    
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let event = createdEvents[indexPath.row]
+        
+        let cell = tableView.dequeueReusableCellWithIdentifier("eventCell") as! UITableViewCell
+        cell.textLabel?.text = event.title
+        
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "dd-MMMM-yyyy hh:mm"
+        
+        cell.detailTextLabel?.text = event.allDay ? "All day" : formatter.stringFromDate(event.startDate) + " -> " + formatter.stringFromDate(event.endDate)
+        
+        return cell
+    }
+    
+}
+
+extension ViewController: UITableViewDelegate {
+    
+}
+
+extension ViewController {
+    
+    private func refreshEvents() {
+        self.calendarManager.requestAuthorization({(error: NSError?) in
+            if let theError = error {
+                println("Authorization denied due to: \(theError.localizedDescription)")
+                return
+            }
+            
+            self.createdEvents = self.calendarManager.getEvents()
+            self.eventsTable.reloadData()
+        })
+    }
+    
+    private func removeCalendar(){
+        self.calendarManager.requestAuthorization({(error: NSError?) in
+            if let theError = error {
+                println("Authorization denied due to: \(theError.localizedDescription)")
+                return
+            }
+            
+            self.calendarManager.removeCalendar(completion: {(wasRemoved: Bool, error: NSError?) in
+                if wasRemoved {
+                    println("Sucess Removing calendar!")
+                    self.eventsTable.reloadData()
+                } else {
+                    println("Error deleting calendar because")
+                }
+            })
+        })
+    }
+    
+    private func createCalendar(){
         calendarManager.requestAuthorization({(error: NSError?) in
             if let theError = error {
                 println("Authorization denied due to: \(theError.localizedDescription)")
@@ -152,6 +119,8 @@ class ViewController: UIViewController {
             self.calendarManager.addCalendar(completion: {(wasSaved: Bool, error: NSError?) in
                 if wasSaved {
                     println("Success creating calendar")
+                    self.calendarName.setTitle(self.CalendarTitle, forState: UIControlState.Normal)
+                    self.calendarName.enabled = false
                 }else {
                     if let theError = error {
                         println("Wasn't able to create calendar because: \(theError.localizedDescription)")
@@ -161,29 +130,33 @@ class ViewController: UIViewController {
         })
     }
     
-    @IBAction func createRandomEvent(sender: AnyObject) {
+    private func createEvent() {
         calendarManager.requestAuthorization({(error: NSError?) in
             if let theError = error {
                 println("Authorization denied due to: \(theError.localizedDescription)")
                 return
             }
+            
             let event = self.calendarManager.createEvent()
-            event.title = "Reunião com o manel \(Int(arc4random_uniform(2000)))"
+            event.title = "Meeting with Mr.\(Int(arc4random_uniform(2000)))"
             event.startDate = NSDate()
             event.endDate = event.startDate.dateByAddingTimeInterval(Double(arc4random_uniform(24)) * 60 * 60)
             
-            event.notes = "My cute note"
-            event.location = "Paradise City"
-            
+            //other options
+            event.notes = "Don't forget to bring his money"
+            event.location = "Room \(Int(arc4random_uniform(100)))"
             //event.addAlarm()
             //event.allDay = true
             event.availability = EKEventAvailabilityFree
             
-            //If the calendar of an event changes, its identifier most likely changes as well.
+            
+            //From docs: If the calendar of an event changes, its identifier most likely changes as well.
             let id = event.eventIdentifier
             
             self.calendarManager.insertEvent(event, completion: {(wasSaved: Bool, error: NSError?) in
                 if wasSaved {
+                    self.createdEvents.append(event)
+                    self.eventsTable.reloadData()
                     println("Success adding event")
                 }else {
                     if let theError = error {
@@ -193,5 +166,21 @@ class ViewController: UIViewController {
             })
         })
     }
+    
+    private func clearCalendarEvents(){
+        calendarManager.requestAuthorization({(error: NSError?) in
+            if let theError = error {
+                println("Authorization denied due to: \(theError.localizedDescription)")
+                return
+            }
+            
+            self.calendarManager.removeEvents({(error: NSError?) in
+                if let theError = error {
+                    println("Error deleting all events because \(theError.localizedDescription)")
+                }else {
+                    self.eventsTable.reloadData()
+                }
+            })
+        })
+    }
 }
-
