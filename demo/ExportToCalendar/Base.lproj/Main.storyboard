@@ -66,8 +66,8 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oe4-cR-P1K">
-                                <rect key="frame" x="16" y="28" width="62" height="30"/>
-                                <state key="normal" title="Calendar">
+                                <rect key="frame" x="16" y="28" width="46" height="30"/>
+                                <state key="normal" title="Create">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -91,11 +91,14 @@
                     </view>
                     <connections>
                         <outlet property="calendarName" destination="Oe4-cR-P1K" id="8zd-sk-XSd"/>
+                        <outlet property="clearEvents" destination="5Qb-AF-yCV" id="NOx-kQ-diI"/>
+                        <outlet property="createEvent" destination="CK3-Mb-t70" id="gj1-4a-aJl"/>
                         <outlet property="eventsTable" destination="7ip-Wl-Tbv" id="rkk-0E-88o"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="493" y="477"/>
         </scene>
     </scenes>
 </document>

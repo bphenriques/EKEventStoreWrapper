@@ -5,6 +5,8 @@ import EventKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var calendarName: UIButton!
+    @IBOutlet weak var createEvent: UIButton!
+    @IBOutlet weak var clearEvents: UIButton!
     @IBOutlet weak var eventsTable: UITableView!
     
     let CalendarTitle = "CalendarTest"
@@ -16,23 +18,37 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         calendarManager = CalendarManager(calendarName: CalendarTitle)
+        
+    }
+    
+    private func refreshButtons() {
+        if let c = calendarManager.calendar{
+            calendarName.setTitle(CalendarTitle, forState: .Normal)
+            createEvent.hidden = false
+            clearEvents.hidden = false
+        }else {
+            calendarName.setTitle("Create \(CalendarTitle)", forState: .Normal)
+            createEvent.hidden = true
+            clearEvents.hidden = true
+        }
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        self.refreshEvents()
+        refreshButtons()
+        refreshEvents()
     }
     
     @IBAction func calendarNameHandler(sender: AnyObject){
         if let calendar = calendarManager.calendar {
-            let alert = UIAlertController(title: "Do you want to delete the calendar?", message: "", preferredStyle: .Alert)
-            let OKAction = UIAlertAction(title: "Yes", style: .Destructive, handler: { _ in
+            let alert = UIAlertController(title: DeleteCalendarAlertText.title, message: DeleteCalendarAlertText.message, preferredStyle: .Alert)
+            let OKAction = UIAlertAction(title: AlertActions.yes, style: .Destructive, handler: { _ in
                 self.removeCalendar()
                 self.refreshEvents()
             })
             alert.addAction(OKAction)
 
-            let CancelAction = UIAlertAction(title: "No", style: .Cancel, handler: nil)
+            let CancelAction = UIAlertAction(title: AlertActions.no, style: .Cancel, handler: nil)
             alert.addAction(CancelAction)
 
             self.presentViewController(alert, animated: true, completion: nil)
@@ -46,7 +62,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func createRandomEvent(sender: AnyObject) {
-        createEvent()
+        insertEvent()
     }
 }
 
@@ -84,6 +100,7 @@ extension ViewController: UITableViewDelegate {
             self.calendarManager.requestAuthorization() {(error: NSError?) in
                 if let theError = error {
                     println("Authorization denied due to: \(theError.localizedDescription)")
+                    UIApplication.sharedApplication().openURL(NSURL(string:UIApplicationOpenSettingsURLString)!)
                 }else {
                     let event = self.events[indexPath.row]
                     self.calendarManager.removeEvent(event.eventIdentifier) {(wasRemoved: Bool, error: NSError?) in
@@ -105,6 +122,7 @@ extension ViewController {
         self.calendarManager.requestAuthorization() {(error: NSError?) in
             if let theError = error {
                 println("Authorization denied due to: \(theError.localizedDescription)")
+                self.openSettings()
             }else {
                 let today = NSDate()
                 let twoYears = Double(2 * 366 * 24 * 60 * 60)
@@ -127,11 +145,13 @@ extension ViewController {
         self.calendarManager.requestAuthorization() {(error: NSError?) in
             if let theError = error {
                 println("Authorization denied due to: \(theError.localizedDescription)")
+                self.openSettings()
             }else {
                 self.calendarManager.removeCalendar() {(wasRemoved: Bool, error: NSError?) in
                     if wasRemoved {
                         println("Sucess Removing calendar!")
                         self.refreshEvents()
+                        self.refreshButtons()
                     } else {
                         println("Error deleting calendar because \(error?.localizedDescription)")
                     }
@@ -144,11 +164,12 @@ extension ViewController {
         calendarManager.requestAuthorization() {(error: NSError?) in
             if let theError = error {
                 println("Authorization denied due to: \(theError.localizedDescription)")
+                self.openSettings()
             }else {
                 self.calendarManager.addCalendar() {(wasSaved: Bool, error: NSError?) in
                     if wasSaved {
                         println("Success creating calendar")
-                        self.calendarName.setTitle(self.CalendarTitle, forState: UIControlState.Normal)
+                        self.refreshButtons()
                     }else {
                         if let theError = error {
                             println("Wasn't able to create calendar because: \(theError.localizedDescription)")
@@ -159,10 +180,11 @@ extension ViewController {
         }
     }
     
-    private func createEvent() {
+    private func insertEvent() {
         calendarManager.requestAuthorization() {(error: NSError?) in
             if let theError = error {
                 println("Authorization denied due to: \(theError.localizedDescription)")
+                self.openSettings()
             }else {
                 if let event = self.calendarManager.createEvent() {
                     event.title = "Meeting with Mr.\(Int(arc4random_uniform(2000)))"
@@ -170,7 +192,7 @@ extension ViewController {
                     event.endDate = event.startDate.dateByAddingTimeInterval(Double(arc4random_uniform(24)) * 60 * 60)
                     
                     //other options
-                    event.notes = "Don't forget to bring his money"
+                    event.notes = "Don't forget to bring the meeting memos"
                     event.location = "Room \(Int(arc4random_uniform(100)))"
                     event.availability = EKEventAvailabilityFree
                     
@@ -193,6 +215,7 @@ extension ViewController {
         calendarManager.requestAuthorization({(error: NSError?) in
             if let theError = error {
                 println("Authorization denied due to: \(theError.localizedDescription)")
+                self.openSettings()
             } else {
                 self.calendarManager.clearEvents() {(error: NSError?) in
                     if let theError = error {
@@ -203,6 +226,37 @@ extension ViewController {
                 }
             }
         })
-        
     }
+}
+
+extension ViewController {
+    private func openSettings() {
+        let alert = UIAlertController(title: NoAccessAlertText.title, message: NoAccessAlertText.message, preferredStyle: .Alert)
+        let yes = UIAlertAction(title: AlertActions.yes, style: .Default, handler: { _ in
+            UIApplication.sharedApplication().openURL(NSURL(string:UIApplicationOpenSettingsURLString)!)
+        })
+        alert.addAction(yes)
+        
+        let no = UIAlertAction(title: AlertActions.no, style: .Cancel, handler: nil)
+        alert.addAction(no)
+        
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
+}
+
+extension ViewController{
+    typealias AlertText = (title: String, message: String)
+    
+    private var NoAccessAlertText: AlertText {get {
+        return ("The app doesn't have access to calendar", "Do you want to open the settings?")
+    }}
+    
+    private var DeleteCalendarAlertText: AlertText {get {
+        return ("Do you want to delete the calendar?", "")
+    }}
+    
+    private var AlertActions: (yes: String, no: String){get {
+        return ("Yes", "No")
+    }}
+
 }
