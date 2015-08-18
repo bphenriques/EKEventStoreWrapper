@@ -31,7 +31,7 @@ Pod::Spec.new do |s|
 
 
   # ――― Source Location ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  s.source       = { :git => "https://github.com/bphenriques/EKEventStoreWrapper.git", :tag => “0.9.1” }
+  s.source       = { :git => "https://github.com/bphenriques/EKEventStoreWrapper.git", :tag => "0.9.2" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
