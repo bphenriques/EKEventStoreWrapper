@@ -6,11 +6,12 @@ Pod::Spec.new do |s|
 
   # ―――  Spec Metadata  ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   s.name         = "EKEventStoreWrapper"
-  s.version      = "0.9.6"
+  s.version      = "0.9.7"
   s.summary      = "EKEventStore wrapper, aims to ease and reduce code"
 
   s.description  = <<-DESC
-                   EKEventStore wrapper, aims to ease and reduce code
+                   EKEventStore wrapper, reduce most boiler plate code required to
+		   handle EKEvents
 		   DESC
 
   s.homepage     = "https://github.com/bphenriques/EKEventStoreWrapper"
@@ -31,7 +32,7 @@ Pod::Spec.new do |s|
 
 
   # ――― Source Location ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  s.source       = { :git => "https://github.com/bphenriques/EKEventStoreWrapper.git", :tag => "0.9.6" }
+  s.source       = { :git => "https://github.com/bphenriques/EKEventStoreWrapper.git", :tag => "0.9.7" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
