@@ -1,0 +1,6 @@
+framework module EKEventStoreWrapper {
+  umbrella header "EKEventStoreWrapper-umbrella.h"
+
+  export *
+  module * { export * }
+}

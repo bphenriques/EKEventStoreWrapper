@@ -6,8 +6,6 @@
 //  Copyright (c) 2015 Bruno Henriques. All rights reserved.
 //
 
-import Foundation
-import UIKit
 import EventKit
 
 
@@ -35,7 +33,7 @@ public class CalendarManager{
     
     /**
         Request access and execute block of code
-        
+    
         :param: `completion: (error: NSError?) -> ()` block of code
     */
     public func requestAuthorization(completion: (error: NSError?) -> ()){
@@ -47,7 +45,7 @@ public class CalendarManager{
         case .NotDetermined:
             eventStore.requestAccessToEntityType(EKEntityTypeEvent, completion: {[weak self] (granted: Bool, error: NSError!) -> Void in
                 completion(error: granted ? nil : error)
-            })
+                })
         default:
             completion(error: generateDeniedAccessToCalendarError())
         }
@@ -77,7 +75,7 @@ public class CalendarManager{
     
     /**
         Returns a new event attached to this calendar or nil if the calendar doesn't exist yet
-        
+    
         :return: `EKEvent?`
     */
     public func createEvent() -> EKEvent? {
@@ -92,7 +90,7 @@ public class CalendarManager{
     
     /**
         Remove the event from the event store
-    
+        
         :param: `String`: eventId
         :param: `Bool optional`: commit, true
         :param: `(wasRemoved: Bool, error: NSError?)-> () optional`: completion block in main_queue, default nil
@@ -109,7 +107,7 @@ public class CalendarManager{
     
     /**
         Removes the calendar along with its events
-    
+        
         :param: `Bool optional`: commit, default true
         :param: `(wasRemoved: Bool, error: NSError?)-> () optional`: completion block in main_queue, default nil
     */
@@ -126,7 +124,7 @@ public class CalendarManager{
         
         :param: `NSDate`: start date
         :param: `NSDate`: end date
-    
+        
         :returns: `(events: [EKEvent], error: NSError?)`
     */
     public func getEvents(startDate: NSDate, endDate: NSDate) -> (events: [EKEvent], error: NSError?){
@@ -145,7 +143,7 @@ public class CalendarManager{
     
     /**
         Get event with id
-    
+        
         :return: `EKEvent?`: the event if exists
     */
     
@@ -156,7 +154,7 @@ public class CalendarManager{
     
     /**
         Clear all events from the calendar. Removes and then creates the calendar
-    
+        
         :param: `(error: NSError?) -> () optional`: completion block in main_queue, default nil
     */
     public func clearEvents(completion: ((error: NSError?) -> ())? = nil){
@@ -174,7 +172,7 @@ public class CalendarManager{
             }
         })
     }
-
+    
     /**
         Insert new event in the calendar. Use createEvent method of don't forget to attach the intended calendar to the event
         
@@ -194,7 +192,7 @@ public class CalendarManager{
     
     /**
         Commit
-        
+    
         :returns: `NSError?`
     */
     public func commit() -> NSError?{
