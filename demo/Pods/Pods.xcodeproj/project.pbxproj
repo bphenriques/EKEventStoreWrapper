@@ -7,22 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3061C3CF8B7E8C512E704D5B57334B9B /* CalendarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971E1816E710AC4543FDDE1443C031F5 /* CalendarManager.swift */; };
-		638E2430AD6881FA9B5B58748C13769B /* EKEventStoreWrapper-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 9CF1894C5C62D9088070CB7080E1D881 /* EKEventStoreWrapper-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9FDA34A357BE3A5CF0E7F52E2A1B26CB /* EKEventStoreWrapper-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D69685C9B229C8005216073FF80D36C0 /* EKEventStoreWrapper-dummy.m */; };
-		A3C501BBA1CE09FFF160ECDEA0E41018 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D874602E5FA48F76E5CF36DEB968DAD1 /* EventKit.framework */; };
+		013EFA4E47825E8F20992C2AA595580F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93B1C11C3280469F05BC9A845B583E85 /* Foundation.framework */; };
+		325B1D9230FBC965F5EBC01F48EFF436 /* CalendarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980D522867F2567FE2C0BC8E471E125A /* CalendarManager.swift */; };
+		511121A2C3F770DA07665612D7B6ED79 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6ED38299975780E53A56C1AEE204909 /* EventKit.framework */; };
+		664E5B5C8E872E749A16875D2D93DACE /* EKEventStoreWrapper-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 25338E82B9B5C8004EBDF842DB85FB8D /* EKEventStoreWrapper-dummy.m */; };
 		A9A6627E2D3B1F11C1ECE102A8BF728F /* Pods-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = FF9C9444F655A79E415D16121656A1FC /* Pods-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B0D7C0129214A5EAC663441D3E521A68 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFE0F736B3E4CA60C8E9A83095BFE10E /* Foundation.framework */; };
 		B3BE990209FD37B815FF501295B98BD6 /* Pods-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0081C2C8E355D28B3C08F01C749D3A94 /* Pods-dummy.m */; };
-		B8B5D6DFFD0BB0BD6AE3401115C7EFA9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFE0F736B3E4CA60C8E9A83095BFE10E /* Foundation.framework */; };
+		B8B5D6DFFD0BB0BD6AE3401115C7EFA9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93B1C11C3280469F05BC9A845B583E85 /* Foundation.framework */; };
+		DDEF77BC5B87D17835DEAABBF030F961 /* EKEventStoreWrapper-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 3E8A28FE088E02B0F6FCBFA70044B834 /* EKEventStoreWrapper-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		C7B436C02137FDA892321CAF9AE5766F /* PBXContainerItemProxy */ = {
+		9CD4A7ECEBF57A561671C304105614DC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = DA95B16BF635DCBC681CF79C777B81E4;
+			remoteGlobalIDString = 0F815EEE9608B14DCC74A9E06313C3AE;
 			remoteInfo = EKEventStoreWrapper;
 		};
 /* End PBXContainerItemProxy section */
@@ -30,44 +30,44 @@
 /* Begin PBXFileReference section */
 		0081C2C8E355D28B3C08F01C749D3A94 /* Pods-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-dummy.m"; sourceTree = "<group>"; };
 		1B39ABAAAACACCDE5284A5450701ED6D /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		2C49FF496CF9D4457FCA986C1FFF435E /* EKEventStoreWrapper-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "EKEventStoreWrapper-Private.xcconfig"; sourceTree = "<group>"; };
+		25338E82B9B5C8004EBDF842DB85FB8D /* EKEventStoreWrapper-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "EKEventStoreWrapper-dummy.m"; sourceTree = "<group>"; };
+		3E8A28FE088E02B0F6FCBFA70044B834 /* EKEventStoreWrapper-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "EKEventStoreWrapper-umbrella.h"; sourceTree = "<group>"; };
 		56727C889B467509FB65CD1F23124F39 /* EKEventStoreWrapper-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "EKEventStoreWrapper-prefix.pch"; sourceTree = "<group>"; };
+		6B49508BDC52B2621BDEE6FA3D71EEDC /* EKEventStoreWrapper-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "EKEventStoreWrapper-Private.xcconfig"; sourceTree = "<group>"; };
 		79A9DEDC89FE8336BF5FEDAAF75BF7FC /* Pods.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Pods.modulemap; sourceTree = "<group>"; };
 		7E35DCDC481BF4A2D1E0B07509581E0E /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84E49BE9277EC3F6FACE318A5071278C /* EKEventStoreWrapper.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = EKEventStoreWrapper.xcconfig; sourceTree = "<group>"; };
-		85A1BF3E7C3732E18B1CDC5A194DA1B1 /* EKEventStoreWrapper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EKEventStoreWrapper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		87B213035BAC5F75386F62D3C75D2342 /* Pods-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-acknowledgements.plist"; sourceTree = "<group>"; };
 		8FAA405E30D9571F18EC932F2F2B7BC8 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.release.xcconfig; sourceTree = "<group>"; };
-		971E1816E710AC4543FDDE1443C031F5 /* CalendarManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CalendarManager.swift; path = EKEventStoreWrapper/EKEventStoreWrapper/CalendarManager.swift; sourceTree = "<group>"; };
-		9CF1894C5C62D9088070CB7080E1D881 /* EKEventStoreWrapper-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "EKEventStoreWrapper-umbrella.h"; sourceTree = "<group>"; };
+		93B1C11C3280469F05BC9A845B583E85 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		980D522867F2567FE2C0BC8E471E125A /* CalendarManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CalendarManager.swift; path = EKEventStoreWrapper/EKEventStoreWrapper/CalendarManager.swift; sourceTree = "<group>"; };
 		A68DC43FC0CAAD7D8A78BFAA765BAB9C /* EKEventStoreWrapper.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = EKEventStoreWrapper.modulemap; sourceTree = "<group>"; };
 		BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		CBC0F7C552B739C909B650A0F42F7F38 /* Pods-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-resources.sh"; sourceTree = "<group>"; };
 		D0405803033A2A777B8E4DFA0C1800ED /* Pods-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-acknowledgements.markdown"; sourceTree = "<group>"; };
-		D69685C9B229C8005216073FF80D36C0 /* EKEventStoreWrapper-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "EKEventStoreWrapper-dummy.m"; sourceTree = "<group>"; };
-		D874602E5FA48F76E5CF36DEB968DAD1 /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/EventKit.framework; sourceTree = DEVELOPER_DIR; };
+		D244D7BDD61704E87127DF1D81876A84 /* EKEventStoreWrapper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EKEventStoreWrapper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2C0C90C8E9576FBC6F94240AAA93AEB /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.debug.xcconfig; sourceTree = "<group>"; };
+		E6ED38299975780E53A56C1AEE204909 /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/EventKit.framework; sourceTree = DEVELOPER_DIR; };
 		E7F21354943D9F42A70697D5A5EF72E9 /* Pods-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-frameworks.sh"; sourceTree = "<group>"; };
 		E8446514FBAD26C0E18F24A5715AEF67 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FF9C9444F655A79E415D16121656A1FC /* Pods-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-umbrella.h"; sourceTree = "<group>"; };
-		FFE0F736B3E4CA60C8E9A83095BFE10E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		C811B56A7FB2B1580BF95BA2A4125481 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A3C501BBA1CE09FFF160ECDEA0E41018 /* EventKit.framework in Frameworks */,
-				B0D7C0129214A5EAC663441D3E521A68 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		D2817A50880ADC5645EFED62F478D7DB /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				B8B5D6DFFD0BB0BD6AE3401115C7EFA9 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FF1CF71E37B6DA2D810D711BD67A68A1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				511121A2C3F770DA07665612D7B6ED79 /* EventKit.framework in Frameworks */,
+				013EFA4E47825E8F20992C2AA595580F /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,10 +79,10 @@
 			children = (
 				A68DC43FC0CAAD7D8A78BFAA765BAB9C /* EKEventStoreWrapper.modulemap */,
 				84E49BE9277EC3F6FACE318A5071278C /* EKEventStoreWrapper.xcconfig */,
-				2C49FF496CF9D4457FCA986C1FFF435E /* EKEventStoreWrapper-Private.xcconfig */,
-				D69685C9B229C8005216073FF80D36C0 /* EKEventStoreWrapper-dummy.m */,
+				6B49508BDC52B2621BDEE6FA3D71EEDC /* EKEventStoreWrapper-Private.xcconfig */,
+				25338E82B9B5C8004EBDF842DB85FB8D /* EKEventStoreWrapper-dummy.m */,
 				56727C889B467509FB65CD1F23124F39 /* EKEventStoreWrapper-prefix.pch */,
-				9CF1894C5C62D9088070CB7080E1D881 /* EKEventStoreWrapper-umbrella.h */,
+				3E8A28FE088E02B0F6FCBFA70044B834 /* EKEventStoreWrapper-umbrella.h */,
 				7E35DCDC481BF4A2D1E0B07509581E0E /* Info.plist */,
 			);
 			name = "Support Files";
@@ -100,7 +100,7 @@
 		52A7DF770C4FAC39882ABDA8EF16889F /* EKEventStoreWrapper */ = {
 			isa = PBXGroup;
 			children = (
-				971E1816E710AC4543FDDE1443C031F5 /* CalendarManager.swift */,
+				980D522867F2567FE2C0BC8E471E125A /* CalendarManager.swift */,
 				10510A6F464AF9F8108678E4566A25B1 /* Support Files */,
 			);
 			path = EKEventStoreWrapper;
@@ -109,8 +109,8 @@
 		56ECAEAC2A8F0EE383F0EE0DFE201508 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
-				D874602E5FA48F76E5CF36DEB968DAD1 /* EventKit.framework */,
-				FFE0F736B3E4CA60C8E9A83095BFE10E /* Foundation.framework */,
+				E6ED38299975780E53A56C1AEE204909 /* EventKit.framework */,
+				93B1C11C3280469F05BC9A845B583E85 /* Foundation.framework */,
 			);
 			name = iOS;
 			sourceTree = "<group>";
@@ -163,7 +163,7 @@
 		CCA510CFBEA2D207524CDA0D73C3B561 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				85A1BF3E7C3732E18B1CDC5A194DA1B1 /* EKEventStoreWrapper.framework */,
+				D244D7BDD61704E87127DF1D81876A84 /* EKEventStoreWrapper.framework */,
 				1B39ABAAAACACCDE5284A5450701ED6D /* Pods.framework */,
 			);
 			name = Products;
@@ -180,17 +180,34 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8DA4C0A70C2F60225568B57AE5164BF6 /* Headers */ = {
+		D13490BEB688F80D517E6B2057F1E071 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				638E2430AD6881FA9B5B58748C13769B /* EKEventStoreWrapper-umbrella.h in Headers */,
+				DDEF77BC5B87D17835DEAABBF030F961 /* EKEventStoreWrapper-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		0F815EEE9608B14DCC74A9E06313C3AE /* EKEventStoreWrapper */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7DF6D72B63258CA1DE855C43141C932B /* Build configuration list for PBXNativeTarget "EKEventStoreWrapper" */;
+			buildPhases = (
+				92EDDA11C85C873D6B8F1A4DDA754B3D /* Sources */,
+				FF1CF71E37B6DA2D810D711BD67A68A1 /* Frameworks */,
+				D13490BEB688F80D517E6B2057F1E071 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = EKEventStoreWrapper;
+			productName = EKEventStoreWrapper;
+			productReference = D244D7BDD61704E87127DF1D81876A84 /* EKEventStoreWrapper.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		60E022830D7992537E6CA2A6939F072E /* Pods */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0C70707042A5DFDD06FE997F3BD33CF7 /* Build configuration list for PBXNativeTarget "Pods" */;
@@ -202,28 +219,11 @@
 			buildRules = (
 			);
 			dependencies = (
-				D700F8EA626BCA9B107C53A603AF9AC2 /* PBXTargetDependency */,
+				7DC10675D09708A3AEA7C3C5890E4CC2 /* PBXTargetDependency */,
 			);
 			name = Pods;
 			productName = Pods;
 			productReference = 1B39ABAAAACACCDE5284A5450701ED6D /* Pods.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		DA95B16BF635DCBC681CF79C777B81E4 /* EKEventStoreWrapper */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 2BD07F9B2C780889C132CA0AD4A5E9C4 /* Build configuration list for PBXNativeTarget "EKEventStoreWrapper" */;
-			buildPhases = (
-				A1B31E709FE5E7238B7B2549C0A56A62 /* Sources */,
-				C811B56A7FB2B1580BF95BA2A4125481 /* Frameworks */,
-				8DA4C0A70C2F60225568B57AE5164BF6 /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = EKEventStoreWrapper;
-			productName = EKEventStoreWrapper;
-			productReference = 85A1BF3E7C3732E18B1CDC5A194DA1B1 /* EKEventStoreWrapper.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -247,19 +247,19 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				DA95B16BF635DCBC681CF79C777B81E4 /* EKEventStoreWrapper */,
+				0F815EEE9608B14DCC74A9E06313C3AE /* EKEventStoreWrapper */,
 				60E022830D7992537E6CA2A6939F072E /* Pods */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		A1B31E709FE5E7238B7B2549C0A56A62 /* Sources */ = {
+		92EDDA11C85C873D6B8F1A4DDA754B3D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3061C3CF8B7E8C512E704D5B57334B9B /* CalendarManager.swift in Sources */,
-				9FDA34A357BE3A5CF0E7F52E2A1B26CB /* EKEventStoreWrapper-dummy.m in Sources */,
+				325B1D9230FBC965F5EBC01F48EFF436 /* CalendarManager.swift in Sources */,
+				664E5B5C8E872E749A16875D2D93DACE /* EKEventStoreWrapper-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,11 +274,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		D700F8EA626BCA9B107C53A603AF9AC2 /* PBXTargetDependency */ = {
+		7DC10675D09708A3AEA7C3C5890E4CC2 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = EKEventStoreWrapper;
-			target = DA95B16BF635DCBC681CF79C777B81E4 /* EKEventStoreWrapper */;
-			targetProxy = C7B436C02137FDA892321CAF9AE5766F /* PBXContainerItemProxy */;
+			target = 0F815EEE9608B14DCC74A9E06313C3AE /* EKEventStoreWrapper */;
+			targetProxy = 9CD4A7ECEBF57A561671C304105614DC /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -312,9 +312,9 @@
 			};
 			name = Release;
 		};
-		7A6A0597116F31A485744F3D91996F6E /* Debug */ = {
+		9AEE90BB76E5DF6570331C9E77FCDF0F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2C49FF496CF9D4457FCA986C1FFF435E /* EKEventStoreWrapper-Private.xcconfig */;
+			baseConfigurationReference = 6B49508BDC52B2621BDEE6FA3D71EEDC /* EKEventStoreWrapper-Private.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 0.9.8;
@@ -329,16 +329,15 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/EKEventStoreWrapper/EKEventStoreWrapper.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = EKEventStoreWrapper;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Debug;
+			name = Release;
 		};
 		9CE09E08F6A91ABB6E00D7DD7E15F711 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -409,9 +408,9 @@
 			};
 			name = Debug;
 		};
-		AC20BC4C5471014103222A60E73D6EA5 /* Release */ = {
+		BEEB97659B082A306ED9A5FCC4690580 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2C49FF496CF9D4457FCA986C1FFF435E /* EKEventStoreWrapper-Private.xcconfig */;
+			baseConfigurationReference = 6B49508BDC52B2621BDEE6FA3D71EEDC /* EKEventStoreWrapper-Private.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 0.9.8;
@@ -426,15 +425,16 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/EKEventStoreWrapper/EKEventStoreWrapper.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_NAME = EKEventStoreWrapper;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Release;
+			name = Debug;
 		};
 		FB45FFD90572718D82AB9092B750F0CA /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -482,20 +482,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2BD07F9B2C780889C132CA0AD4A5E9C4 /* Build configuration list for PBXNativeTarget "EKEventStoreWrapper" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				7A6A0597116F31A485744F3D91996F6E /* Debug */,
-				AC20BC4C5471014103222A60E73D6EA5 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A70CDAD61F90AC503C7D04CC22DA2923 /* Debug */,
 				FB45FFD90572718D82AB9092B750F0CA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7DF6D72B63258CA1DE855C43141C932B /* Build configuration list for PBXNativeTarget "EKEventStoreWrapper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BEEB97659B082A306ED9A5FCC4690580 /* Debug */,
+				9AEE90BB76E5DF6570331C9E77FCDF0F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
