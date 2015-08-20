@@ -6,4 +6,4 @@ use_frameworks!
 link_with 'ExportToCalendar', 'ExportToCalendarTests'
 
 
-pod 'EKEventStoreWrapper', :git => 'https://github.com/bphenriques/EKEventStoreWrapper.git', :tag => '0.9.8'
+pod 'EKEventStoreWrapper', :git => 'https://github.com/bphenriques/EKEventStoreWrapper.git', :tag => '0.9.11'
