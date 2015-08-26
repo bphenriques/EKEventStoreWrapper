@@ -8,7 +8,6 @@
 
 import EventKit
 
-
 public class CalendarManager{
     public let eventStore = EKEventStore()
     public let calendarName: String
@@ -16,7 +15,13 @@ public class CalendarManager{
     private let sourceType: EKSourceType
     public var calendar: EKCalendar? {
         get {
-            return (eventStore.calendarsForEntityType(EKEntityTypeEvent) as! [EKCalendar]).filter({$0.title == self.calendarName}).first
+            return calendarsWithSameIdentifier.first
+        }
+    }
+    
+    public var calendarsWithSameIdentifier: [EKCalendar] {
+        get {
+            return (eventStore.calendarsForEntityType(EKEntityTypeEvent) as! [EKCalendar]).filter({$0.title == self.calendarName})
         }
     }
     
@@ -33,7 +38,7 @@ public class CalendarManager{
     
     /**
         Request access and execute block of code
-    
+        
         :param: `completion: (error: NSError?) -> ()` block of code
     */
     public func requestAuthorization(completion: (error: NSError?) -> ()){
@@ -68,14 +73,12 @@ public class CalendarManager{
         var error: NSError? = nil
         let calendarWasSaved = eventStore.saveCalendar(newCalendar, commit: commit, error: &error)
         
-        dispatch_async(dispatch_get_main_queue(), { _ in
-            completion?(wasSaved: calendarWasSaved, error: error)
-        })
+        completion?(wasSaved: calendarWasSaved, error: error)
     }
     
     /**
         Returns a new event attached to this calendar or nil if the calendar doesn't exist yet
-    
+        
         :return: `EKEvent?`
     */
     public func createEvent() -> EKEvent? {
@@ -100,23 +103,30 @@ public class CalendarManager{
         var error: NSError?
         let eventWasRemoved = eventStore.removeEvent(getEvent(eventId), span: EKSpanThisEvent, commit: commit, error: &error)
         
-        dispatch_async(dispatch_get_main_queue(), { _ in
-            completion?(wasRemoved: eventWasRemoved, error: error)
-        })
+        completion?(wasRemoved: eventWasRemoved, error: error)
     }
     
     /**
         Removes the calendar along with its events
         
         :param: `Bool optional`: commit, default true
-        :param: `(wasRemoved: Bool, error: NSError?)-> () optional`: completion block in main_queue, default nil
+        :param: `(wasRemoved: Bool, error: NSError?)-> () optional`: completion, default nil
     */
     public func removeCalendar(commit: Bool = true, completion: ((wasRemoved: Bool, error: NSError?)-> ())? = nil){
         var error: NSError?
-        let wasRemoved = eventStore.removeCalendar(calendar, commit: commit, error: &error)
-        dispatch_async(dispatch_get_main_queue(), { _ in
-            completion?(wasRemoved: wasRemoved, error: error)
-        })
+        var wasRemoved = true
+        for c in calendarsWithSameIdentifier {
+            println("Removing \(c.title)")
+            wasRemoved = eventStore.removeCalendar(calendar, commit: commit, error: &error)
+            
+            if error != nil {
+                break
+            }
+            
+            error = nil
+        }
+        completion?(wasRemoved: wasRemoved, error: error)
+        
     }
     
     /**
@@ -161,14 +171,10 @@ public class CalendarManager{
         removeCalendar(commit: true, completion: {(wasRemoved: Bool, error: NSError?) in
             if wasRemoved {
                 self.addCalendar(completion: {(wasSaved: Bool, error: NSError?) in
-                    dispatch_async(dispatch_get_main_queue(), { _ in
-                        completion?(error: wasSaved ? nil : error)
-                    })
+                    completion?(error: wasSaved ? nil : error)
                 })
             }else {
-                dispatch_async(dispatch_get_main_queue(), { _ in
-                    completion?(error: wasRemoved ? nil : error)
-                })
+                completion?(error: wasRemoved ? nil : error)
             }
         })
     }
@@ -185,14 +191,12 @@ public class CalendarManager{
         var error: NSError?
         let eventWasSaved = eventStore.saveEvent(event, span: EKSpanThisEvent, commit: commit, error: &error)
         
-        dispatch_async(dispatch_get_main_queue(), { _ in
-            completion?(wasSaved: eventWasSaved, error: error)
-        })
+        completion?(wasSaved: eventWasSaved, error: error)
     }
     
     /**
         Commit
-    
+        
         :returns: `NSError?`
     */
     public func commit() -> NSError?{
