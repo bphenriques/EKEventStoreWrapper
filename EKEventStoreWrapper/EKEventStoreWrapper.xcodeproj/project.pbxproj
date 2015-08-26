@@ -8,25 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		20B6C9491B83857100A70658 /* EKEventStoreWrapper.h in Headers */ = {isa = PBXBuildFile; fileRef = 20B6C9481B83857100A70658 /* EKEventStoreWrapper.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		20B6C94F1B83857100A70658 /* EKEventStoreWrapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20B6C9431B83857100A70658 /* EKEventStoreWrapper.framework */; };
 		20B6C9601B83858600A70658 /* CalendarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B6C95F1B83858600A70658 /* CalendarManager.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		20B6C9501B83857100A70658 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 20B6C93A1B83857100A70658 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 20B6C9421B83857100A70658;
-			remoteInfo = EKEventStoreWrapper;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		20B6C9431B83857100A70658 /* EKEventStoreWrapper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EKEventStoreWrapper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		20B6C9471B83857100A70658 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		20B6C9481B83857100A70658 /* EKEventStoreWrapper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EKEventStoreWrapper.h; sourceTree = "<group>"; };
-		20B6C94E1B83857100A70658 /* EKEventStoreWrapperTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EKEventStoreWrapperTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		20B6C95F1B83858600A70658 /* CalendarManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -35,14 +23,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		20B6C94B1B83857100A70658 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				20B6C94F1B83857100A70658 /* EKEventStoreWrapper.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,7 +41,6 @@
 			isa = PBXGroup;
 			children = (
 				20B6C9431B83857100A70658 /* EKEventStoreWrapper.framework */,
-				20B6C94E1B83857100A70658 /* EKEventStoreWrapperTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -116,24 +95,6 @@
 			productReference = 20B6C9431B83857100A70658 /* EKEventStoreWrapper.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		20B6C94D1B83857100A70658 /* EKEventStoreWrapperTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 20B6C95C1B83857100A70658 /* Build configuration list for PBXNativeTarget "EKEventStoreWrapperTests" */;
-			buildPhases = (
-				20B6C94A1B83857100A70658 /* Sources */,
-				20B6C94B1B83857100A70658 /* Frameworks */,
-				20B6C94C1B83857100A70658 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				20B6C9511B83857100A70658 /* PBXTargetDependency */,
-			);
-			name = EKEventStoreWrapperTests;
-			productName = EKEventStoreWrapperTests;
-			productReference = 20B6C94E1B83857100A70658 /* EKEventStoreWrapperTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -144,9 +105,6 @@
 				ORGANIZATIONNAME = "Bruno Henriques";
 				TargetAttributes = {
 					20B6C9421B83857100A70658 = {
-						CreatedOnToolsVersion = 6.4;
-					};
-					20B6C94D1B83857100A70658 = {
 						CreatedOnToolsVersion = 6.4;
 					};
 				};
@@ -164,20 +122,12 @@
 			projectRoot = "";
 			targets = (
 				20B6C9421B83857100A70658 /* EKEventStoreWrapper */,
-				20B6C94D1B83857100A70658 /* EKEventStoreWrapperTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		20B6C9411B83857100A70658 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		20B6C94C1B83857100A70658 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -195,22 +145,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		20B6C94A1B83857100A70658 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		20B6C9511B83857100A70658 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 20B6C9421B83857100A70658 /* EKEventStoreWrapper */;
-			targetProxy = 20B6C9501B83857100A70658 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		20B6C9571B83857100A70658 /* Debug */ = {
@@ -335,36 +270,6 @@
 			};
 			name = Release;
 		};
-		20B6C95D1B83857100A70658 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = EKEventStoreWrapperTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Debug;
-		};
-		20B6C95E1B83857100A70658 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = EKEventStoreWrapperTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -382,15 +287,6 @@
 			buildConfigurations = (
 				20B6C95A1B83857100A70658 /* Debug */,
 				20B6C95B1B83857100A70658 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		20B6C95C1B83857100A70658 /* Build configuration list for PBXNativeTarget "EKEventStoreWrapperTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				20B6C95D1B83857100A70658 /* Debug */,
-				20B6C95E1B83857100A70658 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
