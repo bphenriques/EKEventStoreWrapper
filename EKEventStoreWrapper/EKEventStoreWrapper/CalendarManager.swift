@@ -8,6 +8,12 @@
 
 import EventKit
 
+
+protocol Calendarized {
+    func toEKEvent(calendar: EKCalendar) -> EKEvent?
+}
+
+
 public class CalendarManager{
     public let eventStore = EKEventStore()
     public let calendarName: String
@@ -15,23 +21,17 @@ public class CalendarManager{
     private let sourceType: EKSourceType
     public var calendar: EKCalendar? {
         get {
-            return calendarsWithSameIdentifier.first
-        }
-    }
-    
-    public var calendarsWithSameIdentifier: [EKCalendar] {
-        get {
-            return (eventStore.calendarsForEntityType(EKEntityTypeEvent) as! [EKCalendar]).filter({$0.title == self.calendarName})
+        return eventStore.calendarsForEntityType(.Event).filter({$0.calendarIdentifier == calendarName}).first
         }
     }
     
     /**
         Init
     
-        :param: `String`:            name of the calendar
-        :param: `EKSourceType opt`:  sourceType, by default is EKSourceTypeCalDav (iCloud)
+        - parameter `String`::            name of the calendar
+        - parameter `EKSourceType: opt`:  sourceType, by default is EKSourceTypeCalDav (iCloud)
     */
-    public init(calendarName: String, sourceType: EKSourceType = EKSourceTypeCalDAV){
+    public init(calendarName: String, sourceType: EKSourceType = .CalDAV){
         self.calendarName = calendarName
         self.sourceType = sourceType
     }
@@ -39,41 +39,45 @@ public class CalendarManager{
     /**
         Request access and execute block of code
         
-        :param: `completion: (error: NSError?) -> ()` block of code
+        - parameter `completion:: (error: NSError?) -> ()` block of code
     */
     public func requestAuthorization(completion: (error: NSError?) -> ()){
-        switch EKEventStore.authorizationStatusForEntityType(EKEntityTypeEvent) {
+        switch EKEventStore.authorizationStatusForEntityType(EKEntityType.Event) {
         case .Authorized:
             completion(error: nil)
         case .Denied:
-            completion(error: generateDeniedAccessToCalendarError())
+            completion(error: getDeniedAccessToCalendarError())
         case .NotDetermined:
-            eventStore.requestAccessToEntityType(EKEntityTypeEvent, completion: {[weak self] (granted: Bool, error: NSError!) -> Void in
-                completion(error: granted ? nil : error)
-                })
+            eventStore.requestAccessToEntityType(.Event, completion: { (allowed, error) -> Void in
+                if allowed {
+                    completion(error: nil)
+                } else {
+                    completion(error: self.getDeniedAccessToCalendarError())
+                }
+            })
         default:
-            completion(error: generateDeniedAccessToCalendarError())
+            completion(error: getDeniedAccessToCalendarError())
         }
     }
     
     /**
         Add calendar
         
-        :param: `Bool optional`: commit, default true
-        :param: `(wasSaved: Bool, error: NSError?) -> () optional`: completion in main_queue, default nil
+        - parameter `Bool: optional`: commit, default true
+        - parameter `(wasSaved:: Bool, error: NSError?) -> () optional`: completion in main_queue, default nil
     */
-    public func addCalendar(commit: Bool = true, completion: ((wasSaved: Bool, error: NSError?) -> ())? = nil) {
-        let newCalendar = EKCalendar(forEntityType: EKEntityTypeEvent, eventStore: eventStore)
+    public func addCalendar(commit: Bool = true, completion: (() -> ())? = nil) throws {
+        let newCalendar = EKCalendar(forEntityType: .Event, eventStore: eventStore)
         newCalendar.title = calendarName
         
-        // Filter the available sources and select the ones pretended. The instance MUST com from eventStore
-        let sourcesInEventStore = eventStore.sources() as! [EKSource]
-        newCalendar.source = sourcesInEventStore.filter { $0.sourceType.value == self.sourceType.value }.first
-        
-        var error: NSError? = nil
-        let calendarWasSaved = eventStore.saveCalendar(newCalendar, commit: commit, error: &error)
-        
-        completion?(wasSaved: calendarWasSaved, error: error)
+        // defaultCalendarForNewEvents will always return a writtable source, even when there is no iCloud support.
+        newCalendar.source = eventStore.defaultCalendarForNewEvents.source
+        do {
+            try eventStore.saveCalendar(newCalendar, commit: commit)
+            completion?()
+        } catch let error as NSError {
+            throw EKErrorCode(rawValue: error.code) == .SourceDoesNotAllowCalendarAddDelete ? getDeniedAccessToCalendarError() : getGeneralError()
+        }
     }
     
     /**
@@ -94,61 +98,50 @@ public class CalendarManager{
     /**
         Remove the event from the event store
         
-        :param: `String`: eventId
-        :param: `Bool optional`: commit, true
-        :param: `(wasRemoved: Bool, error: NSError?)-> () optional`: completion block in main_queue, default nil
+        - parameter `String`:: eventId
+        - parameter `Bool: optional`: commit, true
+        - parameter `(wasRemoved:: Bool, error: NSError?)-> () optional`: completion block in main_queue, default nil
     */
-    public func removeEvent(eventId: String, commit: Bool = true, completion: ((wasRemoved: Bool, error: NSError?)-> ())? = nil){
-        // Remove event from Calendar
-        var error: NSError?
-        let eventWasRemoved = eventStore.removeEvent(getEvent(eventId), span: EKSpanThisEvent, commit: commit, error: &error)
-        
-        completion?(wasRemoved: eventWasRemoved, error: error)
+    public func removeEvent(eventId: String, completion: (()-> ())? = nil) {
+        if let e = getEvent(eventId){
+            deleteEvent(e)
+            completion?()
+        }
     }
     
     /**
         Removes the calendar along with its events
         
-        :param: `Bool optional`: commit, default true
-        :param: `(wasRemoved: Bool, error: NSError?)-> () optional`: completion, default nil
+        - parameter `Bool: optional`: commit, default true
+        - parameter `(wasRemoved:: Bool, error: NSError?)-> () optional`: completion, default nil
     */
-    public func removeCalendar(commit: Bool = true, completion: ((wasRemoved: Bool, error: NSError?)-> ())? = nil){
-        var error: NSError?
-        var wasRemoved = true
-        for c in calendarsWithSameIdentifier {
-            println("Removing \(c.title)")
-            wasRemoved = eventStore.removeCalendar(calendar, commit: commit, error: &error)
-            
-            if error != nil {
-                break
+    public func removeCalendar(commit: Bool = true, completion: (()-> ())? = nil) throws {
+        if let cal = calendar where EKEventStore.authorizationStatusForEntityType(EKEntityType.Event) == .Authorized {
+            do {
+                try eventStore.removeCalendar(cal, commit: true)
+                completion?()
+            } catch {
+                throw getUnableToDeleteCalendarError()
             }
-            
-            error = nil
         }
-        completion?(wasRemoved: wasRemoved, error: error)
-        
     }
     
     /**
         Get events
         
-        :param: `NSDate`: start date
-        :param: `NSDate`: end date
+        - parameter `NSDate`:: start date
+        - parameter `NSDate`:: end date
         
-        :returns: `(events: [EKEvent], error: NSError?)`
+        - returns: `(events: [EKEvent], error: NSError?)`
     */
-    public func getEvents(startDate: NSDate, endDate: NSDate) -> (events: [EKEvent], error: NSError?){
+    public func getEvents(startDate: NSDate, endDate: NSDate) throws -> [EKEvent]{
         if let c = calendar {
             let pred = eventStore.predicateForEventsWithStartDate(startDate, endDate: endDate, calendars: [c])
             
-            if let result = eventStore.eventsMatchingPredicate(pred) as? [EKEvent]{
-                return (result, nil)
-            }else {
-                return ([], generateInvalidRangeError())
-            }
+            return eventStore.eventsMatchingPredicate(pred)
         }
         
-        return ([], generateErrorCalendarNotFoundError())
+        throw getUnableToDeleteCalendarError()
     }
     
     /**
@@ -163,47 +156,51 @@ public class CalendarManager{
     
     
     /**
-        Clear all events from the calendar. Removes and then creates the calendar
+        Clear all events from the calendar. Commit is set to false
         
-        :param: `(error: NSError?) -> () optional`: completion block in main_queue, default nil
+        - parameter `(error:: NSError?) -> () optional`: completion block in main_queue, default nil
     */
-    public func clearEvents(completion: ((error: NSError?) -> ())? = nil){
-        removeCalendar(commit: true, completion: {(wasRemoved: Bool, error: NSError?) in
-            if wasRemoved {
-                self.addCalendar(completion: {(wasSaved: Bool, error: NSError?) in
-                    completion?(error: wasSaved ? nil : error)
-                })
-            }else {
-                completion?(error: wasRemoved ? nil : error)
-            }
-        })
+    public func clearEvents(completion: (() -> ())? = nil){
+        if let c = calendar{
+            let range = 63072000 as NSTimeInterval /* Two Years */
+            let startDate = NSDate().dateByAddingTimeInterval(-range)
+            let endDate = NSDate().dateByAddingTimeInterval(range)
+            let predicate = eventStore.predicateForEventsWithStartDate(startDate, endDate: endDate, calendars: [c])
+            
+            eventStore.eventsMatchingPredicate(predicate).forEach(deleteEvent)
+        }
+        
+        completion?()
     }
+    
+    private func deleteEvent(event: EKEvent) {
+        do {
+            try eventStore.removeEvent(event, span: .FutureEvents, commit: false)
+        } catch _ {
+
+        }
+    }
+    
     
     /**
         Insert new event in the calendar. Use createEvent method of don't forget to attach the intended calendar to the event
         
-        :param: `EKEvent`: the event
-        :param: `Bool optional`: commit, default true
-        :param: `(wasSaved: Bool, error: NSError?)-> () optional`: completion block in main_queue, default nil
+        - parameter `EKEvent`:: the event
+        - parameter `Bool: optional`: commit, default true
+        - parameter `(wasSaved:: Bool, error: NSError?)-> () optional`: completion block in main_queue, default nil
     */
-    public func insertEvent(event: EKEvent, commit: Bool = true, completion: ((wasSaved: Bool, error: NSError?)-> ())? = nil) {
+    public func insertEvent(event: EKEvent, commit: Bool = true, completion: (() -> ())? = nil) throws {
         // Save Event in Calendar
-        var error: NSError?
-        let eventWasSaved = eventStore.saveEvent(event, span: EKSpanThisEvent, commit: commit, error: &error)
-        
-        completion?(wasSaved: eventWasSaved, error: error)
+        try eventStore.saveEvent(event, span: .ThisEvent, commit: commit)
     }
     
     /**
         Commit
         
-        :returns: `NSError?`
+        - returns: `NSError?`
     */
-    public func commit() -> NSError?{
-        var error: NSError?
-        eventStore.commit(&error)
-        
-        return error
+    public func commit() throws {
+        try eventStore.commit()
     }
     
     /**
@@ -215,31 +212,31 @@ public class CalendarManager{
 }
 
 extension CalendarManager {
-    private func generateErrorCalendarNotFoundError() -> NSError{
+    private func getErrorForDomain(domain: String, description: String, reason: String) -> NSError {
         let userInfo = [
-            NSLocalizedDescriptionKey: "Calendar not found",
-            NSLocalizedFailureReasonErrorKey: "Calendar not found",
-            NSLocalizedRecoverySuggestionErrorKey: "Add calendar before adding events"
+            NSLocalizedDescriptionKey: description,
+            NSLocalizedFailureReasonErrorKey: reason
         ]
-        
-        return NSError(domain: "CalendarNotFound", code: 667, userInfo: userInfo)
+        return NSError(domain: "CalendarNotFound", code: 999, userInfo: userInfo)
     }
     
-    private func generateDeniedAccessToCalendarError() -> NSError{
-        let userInfo = [
-            NSLocalizedDescriptionKey: "Denied access to calendar",
-            NSLocalizedFailureReasonErrorKey: "Authorization was rejected",
-            NSLocalizedRecoverySuggestionErrorKey: "Try accepting authorization"
-        ]
-        return NSError(domain: "CalendarAuthorization", code: 666, userInfo: userInfo)
+    private func getGeneralError() -> NSError {
+        return getErrorForDomain("CalendarError", description: "Unknown Error", reason: "An unknown error ocurred while trying to sync your calendar. Syncing will be turned off.")
     }
     
-    private func generateInvalidRangeError() -> NSError{
-        let userInfo = [
-            NSLocalizedDescriptionKey: "Invalid range",
-            NSLocalizedFailureReasonErrorKey: "Error generating predicate",
-            NSLocalizedRecoverySuggestionErrorKey: "Use a shorter range (e.g. 4 years)"
-        ]
-        return NSError(domain: "CalendarFetchError", code: 668, userInfo: userInfo)
+    private func getDeniedAccessToCalendarError() -> NSError {
+        return getErrorForDomain("CalendarAuthorization", description: "Calendar access was denied", reason: "To continue syncing your calendars re-enable Calendar access for Técnico Lisboa in Settings->Privacy->Calendars.")
     }
-}
+    
+    private func getRestrictedAccessToCalendarError() -> NSError {
+        return getErrorForDomain("CalendarAuthorization", description: "Restricted access to calendar", reason: "Authorization was rejected. The app can't access the calendar service, possibily because of a parental control or enterprise setting being in place.")
+    }
+    
+    private func getUnableToDeleteCalendarError() -> NSError {
+        return getErrorForDomain("CalendarDeleteFailure", description: "Unable to delete the calendar.", reason: "Please remove it manually in the Calendar app.")
+    }
+    
+    private func getDeniedAccessToCalendarAccountError(accountName: String) -> NSError {
+        return getErrorForDomain("CalendarAuthorization", description: "Unable to create a new calendar.", reason: "Calendar access to your default account (\(accountName)) was rejected. Please use a different default account for Calendar events.")
+    }
+ }
