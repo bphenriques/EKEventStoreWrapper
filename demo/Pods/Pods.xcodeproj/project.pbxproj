@@ -7,197 +7,213 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		013EFA4E47825E8F20992C2AA595580F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93B1C11C3280469F05BC9A845B583E85 /* Foundation.framework */; };
-		325B1D9230FBC965F5EBC01F48EFF436 /* CalendarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980D522867F2567FE2C0BC8E471E125A /* CalendarManager.swift */; };
-		511121A2C3F770DA07665612D7B6ED79 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6ED38299975780E53A56C1AEE204909 /* EventKit.framework */; };
-		664E5B5C8E872E749A16875D2D93DACE /* EKEventStoreWrapper-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 25338E82B9B5C8004EBDF842DB85FB8D /* EKEventStoreWrapper-dummy.m */; };
-		A9A6627E2D3B1F11C1ECE102A8BF728F /* Pods-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = FF9C9444F655A79E415D16121656A1FC /* Pods-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B3BE990209FD37B815FF501295B98BD6 /* Pods-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0081C2C8E355D28B3C08F01C749D3A94 /* Pods-dummy.m */; };
-		B8B5D6DFFD0BB0BD6AE3401115C7EFA9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93B1C11C3280469F05BC9A845B583E85 /* Foundation.framework */; };
-		DDEF77BC5B87D17835DEAABBF030F961 /* EKEventStoreWrapper-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 3E8A28FE088E02B0F6FCBFA70044B834 /* EKEventStoreWrapper-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		37E5BD2F7919400084B5039C094ED93B /* EKEventStoreWrapper-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 37323B26B553063D74C3AD552F88D510 /* EKEventStoreWrapper-dummy.m */; };
+		384A5BF1B9187B72DD341D548ED5A79D /* EKEventStoreWrapper-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F9C54CCD17BB48505B6CC451F5924B05 /* EKEventStoreWrapper-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		56FC7322CC7D3C0AA72E56BA8285B860 /* Pods-ExportToCalendar-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = C92B2430AA83718060CC84F08C277BAB /* Pods-ExportToCalendar-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5C9D421B62AD867AB3724BE5ABEAEA0B /* Pods-ExportToCalendar-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 123F7E2A95EE1C77B8FFF0F9AC23C38D /* Pods-ExportToCalendar-dummy.m */; };
+		968756D07AA5E125CCE66F2E574E591E /* CalendarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BC019D3A315AA6DAB31A300F6FB067 /* CalendarManager.swift */; };
+		9C8B6D18CC7D23DAD3FC357021148B9D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48E673FB36B8624615A53F7BF25C5DD7 /* Foundation.framework */; };
+		CE5E186C66B599AA53D7E8BCE424142B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48E673FB36B8624615A53F7BF25C5DD7 /* Foundation.framework */; };
+		FF0F200865FA244A89602874849F41E2 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91828E7E71F0D468044EECDD39C7517A /* EventKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		9CD4A7ECEBF57A561671C304105614DC /* PBXContainerItemProxy */ = {
+		AA82A23A6C6DA2980CA9C7963994EF28 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 0F815EEE9608B14DCC74A9E06313C3AE;
+			remoteGlobalIDString = C60F21CCA1E7FEEDADB1210C7F83975E;
 			remoteInfo = EKEventStoreWrapper;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0081C2C8E355D28B3C08F01C749D3A94 /* Pods-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-dummy.m"; sourceTree = "<group>"; };
-		1B39ABAAAACACCDE5284A5450701ED6D /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		25338E82B9B5C8004EBDF842DB85FB8D /* EKEventStoreWrapper-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "EKEventStoreWrapper-dummy.m"; sourceTree = "<group>"; };
-		3E8A28FE088E02B0F6FCBFA70044B834 /* EKEventStoreWrapper-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "EKEventStoreWrapper-umbrella.h"; sourceTree = "<group>"; };
-		56727C889B467509FB65CD1F23124F39 /* EKEventStoreWrapper-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "EKEventStoreWrapper-prefix.pch"; sourceTree = "<group>"; };
-		6B49508BDC52B2621BDEE6FA3D71EEDC /* EKEventStoreWrapper-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "EKEventStoreWrapper-Private.xcconfig"; sourceTree = "<group>"; };
-		79A9DEDC89FE8336BF5FEDAAF75BF7FC /* Pods.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Pods.modulemap; sourceTree = "<group>"; };
-		7E35DCDC481BF4A2D1E0B07509581E0E /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		84E49BE9277EC3F6FACE318A5071278C /* EKEventStoreWrapper.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = EKEventStoreWrapper.xcconfig; sourceTree = "<group>"; };
-		87B213035BAC5F75386F62D3C75D2342 /* Pods-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-acknowledgements.plist"; sourceTree = "<group>"; };
-		8FAA405E30D9571F18EC932F2F2B7BC8 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.release.xcconfig; sourceTree = "<group>"; };
-		93B1C11C3280469F05BC9A845B583E85 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		980D522867F2567FE2C0BC8E471E125A /* CalendarManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CalendarManager.swift; path = EKEventStoreWrapper/EKEventStoreWrapper/CalendarManager.swift; sourceTree = "<group>"; };
-		A68DC43FC0CAAD7D8A78BFAA765BAB9C /* EKEventStoreWrapper.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = EKEventStoreWrapper.modulemap; sourceTree = "<group>"; };
-		BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		CBC0F7C552B739C909B650A0F42F7F38 /* Pods-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-resources.sh"; sourceTree = "<group>"; };
-		D0405803033A2A777B8E4DFA0C1800ED /* Pods-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-acknowledgements.markdown"; sourceTree = "<group>"; };
-		D244D7BDD61704E87127DF1D81876A84 /* EKEventStoreWrapper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EKEventStoreWrapper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E2C0C90C8E9576FBC6F94240AAA93AEB /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.debug.xcconfig; sourceTree = "<group>"; };
-		E6ED38299975780E53A56C1AEE204909 /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/EventKit.framework; sourceTree = DEVELOPER_DIR; };
-		E7F21354943D9F42A70697D5A5EF72E9 /* Pods-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-frameworks.sh"; sourceTree = "<group>"; };
-		E8446514FBAD26C0E18F24A5715AEF67 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FF9C9444F655A79E415D16121656A1FC /* Pods-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-umbrella.h"; sourceTree = "<group>"; };
+		020CB2D2919410DC69D6F4D1A7C0E182 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		123F7E2A95EE1C77B8FFF0F9AC23C38D /* Pods-ExportToCalendar-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ExportToCalendar-dummy.m"; sourceTree = "<group>"; };
+		35BC019D3A315AA6DAB31A300F6FB067 /* CalendarManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CalendarManager.swift; path = EKEventStoreWrapper/EKEventStoreWrapper/CalendarManager.swift; sourceTree = "<group>"; };
+		37323B26B553063D74C3AD552F88D510 /* EKEventStoreWrapper-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "EKEventStoreWrapper-dummy.m"; sourceTree = "<group>"; };
+		393427626AF487A6A17780C418CBC882 /* EKEventStoreWrapper-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "EKEventStoreWrapper-prefix.pch"; sourceTree = "<group>"; };
+		48E673FB36B8624615A53F7BF25C5DD7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		5478C78C0990B4B8A306F3205CAEDA03 /* Pods-ExportToCalendar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ExportToCalendar.debug.xcconfig"; sourceTree = "<group>"; };
+		5E30A68AD2FCD46062BE46A85E7F3C8E /* Pods-ExportToCalendar-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ExportToCalendar-acknowledgements.plist"; sourceTree = "<group>"; };
+		5E9208959A15C3B69EBB1FD3C9492508 /* EKEventStoreWrapper.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = EKEventStoreWrapper.xcconfig; sourceTree = "<group>"; };
+		91828E7E71F0D468044EECDD39C7517A /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/EventKit.framework; sourceTree = DEVELOPER_DIR; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		961B82995C385A7691403C76908F4511 /* Pods-ExportToCalendar.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-ExportToCalendar.modulemap"; sourceTree = "<group>"; };
+		A6383F4CCE0C5E51658AA45ED76E1697 /* EKEventStoreWrapper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EKEventStoreWrapper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AF02C0BC633F4D1CAF1B493C3D3DDDDB /* EKEventStoreWrapper.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = EKEventStoreWrapper.modulemap; sourceTree = "<group>"; };
+		C5CA26ED303FA4DB6E781124EA20C513 /* Pods-ExportToCalendar-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ExportToCalendar-acknowledgements.markdown"; sourceTree = "<group>"; };
+		C92B2430AA83718060CC84F08C277BAB /* Pods-ExportToCalendar-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-ExportToCalendar-umbrella.h"; sourceTree = "<group>"; };
+		D2FAE1C5BBF566B4798557A9A6546C98 /* Pods-ExportToCalendar-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ExportToCalendar-frameworks.sh"; sourceTree = "<group>"; };
+		E31D5CA5D9DD5307A98A92926E445246 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F43547274BAB04599A5F5C1944395D12 /* Pods_ExportToCalendar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ExportToCalendar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F6560B215E9C43C38B32A7ECF607C224 /* Pods-ExportToCalendar-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ExportToCalendar-resources.sh"; sourceTree = "<group>"; };
+		F82400F08A78024AF13E05E8710C2D90 /* Pods-ExportToCalendar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ExportToCalendar.release.xcconfig"; sourceTree = "<group>"; };
+		F9C54CCD17BB48505B6CC451F5924B05 /* EKEventStoreWrapper-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "EKEventStoreWrapper-umbrella.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		D2817A50880ADC5645EFED62F478D7DB /* Frameworks */ = {
+		5466F899AB3F33CE02DA0A0D0EBF7EE3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B8B5D6DFFD0BB0BD6AE3401115C7EFA9 /* Foundation.framework in Frameworks */,
+				FF0F200865FA244A89602874849F41E2 /* EventKit.framework in Frameworks */,
+				9C8B6D18CC7D23DAD3FC357021148B9D /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FF1CF71E37B6DA2D810D711BD67A68A1 /* Frameworks */ = {
+		70188DB3D965D6E444434A3EE874CC34 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				511121A2C3F770DA07665612D7B6ED79 /* EventKit.framework in Frameworks */,
-				013EFA4E47825E8F20992C2AA595580F /* Foundation.framework in Frameworks */,
+				CE5E186C66B599AA53D7E8BCE424142B /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		10510A6F464AF9F8108678E4566A25B1 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				A68DC43FC0CAAD7D8A78BFAA765BAB9C /* EKEventStoreWrapper.modulemap */,
-				84E49BE9277EC3F6FACE318A5071278C /* EKEventStoreWrapper.xcconfig */,
-				6B49508BDC52B2621BDEE6FA3D71EEDC /* EKEventStoreWrapper-Private.xcconfig */,
-				25338E82B9B5C8004EBDF842DB85FB8D /* EKEventStoreWrapper-dummy.m */,
-				56727C889B467509FB65CD1F23124F39 /* EKEventStoreWrapper-prefix.pch */,
-				3E8A28FE088E02B0F6FCBFA70044B834 /* EKEventStoreWrapper-umbrella.h */,
-				7E35DCDC481BF4A2D1E0B07509581E0E /* Info.plist */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/EKEventStoreWrapper";
-			sourceTree = "<group>";
-		};
 		433CD3331B6C3787F473C941B61FC68F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				56ECAEAC2A8F0EE383F0EE0DFE201508 /* iOS */,
+				7EB36CBE1BFCA392F06DE08FAA027BBF /* iOS */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		52A7DF770C4FAC39882ABDA8EF16889F /* EKEventStoreWrapper */ = {
+		48051BD2DAD01292166753E2C5719D11 /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				980D522867F2567FE2C0BC8E471E125A /* CalendarManager.swift */,
-				10510A6F464AF9F8108678E4566A25B1 /* Support Files */,
+				5031E707B083251C0B279CD4C5F1CD85 /* Pods-ExportToCalendar */,
 			);
-			path = EKEventStoreWrapper;
+			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		56ECAEAC2A8F0EE383F0EE0DFE201508 /* iOS */ = {
+		5031E707B083251C0B279CD4C5F1CD85 /* Pods-ExportToCalendar */ = {
 			isa = PBXGroup;
 			children = (
-				E6ED38299975780E53A56C1AEE204909 /* EventKit.framework */,
-				93B1C11C3280469F05BC9A845B583E85 /* Foundation.framework */,
+				020CB2D2919410DC69D6F4D1A7C0E182 /* Info.plist */,
+				961B82995C385A7691403C76908F4511 /* Pods-ExportToCalendar.modulemap */,
+				C5CA26ED303FA4DB6E781124EA20C513 /* Pods-ExportToCalendar-acknowledgements.markdown */,
+				5E30A68AD2FCD46062BE46A85E7F3C8E /* Pods-ExportToCalendar-acknowledgements.plist */,
+				123F7E2A95EE1C77B8FFF0F9AC23C38D /* Pods-ExportToCalendar-dummy.m */,
+				D2FAE1C5BBF566B4798557A9A6546C98 /* Pods-ExportToCalendar-frameworks.sh */,
+				F6560B215E9C43C38B32A7ECF607C224 /* Pods-ExportToCalendar-resources.sh */,
+				C92B2430AA83718060CC84F08C277BAB /* Pods-ExportToCalendar-umbrella.h */,
+				5478C78C0990B4B8A306F3205CAEDA03 /* Pods-ExportToCalendar.debug.xcconfig */,
+				F82400F08A78024AF13E05E8710C2D90 /* Pods-ExportToCalendar.release.xcconfig */,
 			);
-			name = iOS;
+			name = "Pods-ExportToCalendar";
+			path = "Target Support Files/Pods-ExportToCalendar";
 			sourceTree = "<group>";
 		};
 		5AC30D4011DABFE996B52460A3B9948C /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				52A7DF770C4FAC39882ABDA8EF16889F /* EKEventStoreWrapper */,
+				8F78F7C671D04DFD411B55689BC1EC22 /* EKEventStoreWrapper */,
 			);
 			name = Pods;
-			sourceTree = "<group>";
-		};
-		75D98FF52E597A11900E131B6C4E1ADA /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				E8446514FBAD26C0E18F24A5715AEF67 /* Info.plist */,
-				79A9DEDC89FE8336BF5FEDAAF75BF7FC /* Pods.modulemap */,
-				D0405803033A2A777B8E4DFA0C1800ED /* Pods-acknowledgements.markdown */,
-				87B213035BAC5F75386F62D3C75D2342 /* Pods-acknowledgements.plist */,
-				0081C2C8E355D28B3C08F01C749D3A94 /* Pods-dummy.m */,
-				E7F21354943D9F42A70697D5A5EF72E9 /* Pods-frameworks.sh */,
-				CBC0F7C552B739C909B650A0F42F7F38 /* Pods-resources.sh */,
-				FF9C9444F655A79E415D16121656A1FC /* Pods-umbrella.h */,
-				E2C0C90C8E9576FBC6F94240AAA93AEB /* Pods.debug.xcconfig */,
-				8FAA405E30D9571F18EC932F2F2B7BC8 /* Pods.release.xcconfig */,
-			);
-			name = Pods;
-			path = "Target Support Files/Pods";
 			sourceTree = "<group>";
 		};
 		7DB346D0F39D3F0E887471402A8071AB = {
 			isa = PBXGroup;
 			children = (
-				BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */,
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
 				433CD3331B6C3787F473C941B61FC68F /* Frameworks */,
 				5AC30D4011DABFE996B52460A3B9948C /* Pods */,
-				CCA510CFBEA2D207524CDA0D73C3B561 /* Products */,
-				B7B80995527643776607AFFA75B91E24 /* Targets Support Files */,
+				B55D9F153534A259BEB989CCAD14F711 /* Products */,
+				48051BD2DAD01292166753E2C5719D11 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		B7B80995527643776607AFFA75B91E24 /* Targets Support Files */ = {
+		7EB36CBE1BFCA392F06DE08FAA027BBF /* iOS */ = {
 			isa = PBXGroup;
 			children = (
-				75D98FF52E597A11900E131B6C4E1ADA /* Pods */,
+				91828E7E71F0D468044EECDD39C7517A /* EventKit.framework */,
+				48E673FB36B8624615A53F7BF25C5DD7 /* Foundation.framework */,
 			);
-			name = "Targets Support Files";
+			name = iOS;
 			sourceTree = "<group>";
 		};
-		CCA510CFBEA2D207524CDA0D73C3B561 /* Products */ = {
+		8F78F7C671D04DFD411B55689BC1EC22 /* EKEventStoreWrapper */ = {
 			isa = PBXGroup;
 			children = (
-				D244D7BDD61704E87127DF1D81876A84 /* EKEventStoreWrapper.framework */,
-				1B39ABAAAACACCDE5284A5450701ED6D /* Pods.framework */,
+				35BC019D3A315AA6DAB31A300F6FB067 /* CalendarManager.swift */,
+				D689A1C251E5DCBCA6C4428673156E87 /* Support Files */,
+			);
+			path = EKEventStoreWrapper;
+			sourceTree = "<group>";
+		};
+		B55D9F153534A259BEB989CCAD14F711 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A6383F4CCE0C5E51658AA45ED76E1697 /* EKEventStoreWrapper.framework */,
+				F43547274BAB04599A5F5C1944395D12 /* Pods_ExportToCalendar.framework */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		D689A1C251E5DCBCA6C4428673156E87 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				AF02C0BC633F4D1CAF1B493C3D3DDDDB /* EKEventStoreWrapper.modulemap */,
+				5E9208959A15C3B69EBB1FD3C9492508 /* EKEventStoreWrapper.xcconfig */,
+				37323B26B553063D74C3AD552F88D510 /* EKEventStoreWrapper-dummy.m */,
+				393427626AF487A6A17780C418CBC882 /* EKEventStoreWrapper-prefix.pch */,
+				F9C54CCD17BB48505B6CC451F5924B05 /* EKEventStoreWrapper-umbrella.h */,
+				E31D5CA5D9DD5307A98A92926E445246 /* Info.plist */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/EKEventStoreWrapper";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		47CC6BB00FFF0E7342C4BE3947E2D844 /* Headers */ = {
+		889A0B81318DC96C9B8F2C8B453BA18C /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A9A6627E2D3B1F11C1ECE102A8BF728F /* Pods-umbrella.h in Headers */,
+				384A5BF1B9187B72DD341D548ED5A79D /* EKEventStoreWrapper-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D13490BEB688F80D517E6B2057F1E071 /* Headers */ = {
+		92B23CEF710B8D499BEEB3286297F14B /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DDEF77BC5B87D17835DEAABBF030F961 /* EKEventStoreWrapper-umbrella.h in Headers */,
+				56FC7322CC7D3C0AA72E56BA8285B860 /* Pods-ExportToCalendar-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		0F815EEE9608B14DCC74A9E06313C3AE /* EKEventStoreWrapper */ = {
+		9BBF51671328072E3700C0F8BEB5DCF5 /* Pods-ExportToCalendar */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7DF6D72B63258CA1DE855C43141C932B /* Build configuration list for PBXNativeTarget "EKEventStoreWrapper" */;
+			buildConfigurationList = EB4553CC9CE09E1587AD3489311736E1 /* Build configuration list for PBXNativeTarget "Pods-ExportToCalendar" */;
 			buildPhases = (
-				92EDDA11C85C873D6B8F1A4DDA754B3D /* Sources */,
-				FF1CF71E37B6DA2D810D711BD67A68A1 /* Frameworks */,
-				D13490BEB688F80D517E6B2057F1E071 /* Headers */,
+				297749E8979C85F99AE2F72C2A16422A /* Sources */,
+				70188DB3D965D6E444434A3EE874CC34 /* Frameworks */,
+				92B23CEF710B8D499BEEB3286297F14B /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6589497A928B439FF6FDC0A5BF787DB4 /* PBXTargetDependency */,
+			);
+			name = "Pods-ExportToCalendar";
+			productName = "Pods-ExportToCalendar";
+			productReference = F43547274BAB04599A5F5C1944395D12 /* Pods_ExportToCalendar.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		C60F21CCA1E7FEEDADB1210C7F83975E /* EKEventStoreWrapper */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4769493BF4E1D5D2DC5507760CE39ABC /* Build configuration list for PBXNativeTarget "EKEventStoreWrapper" */;
+			buildPhases = (
+				13E4A93B76B9A9A9E78359459F6C4504 /* Sources */,
+				5466F899AB3F33CE02DA0A0D0EBF7EE3 /* Frameworks */,
+				889A0B81318DC96C9B8F2C8B453BA18C /* Headers */,
 			);
 			buildRules = (
 			);
@@ -205,25 +221,7 @@
 			);
 			name = EKEventStoreWrapper;
 			productName = EKEventStoreWrapper;
-			productReference = D244D7BDD61704E87127DF1D81876A84 /* EKEventStoreWrapper.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		60E022830D7992537E6CA2A6939F072E /* Pods */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 0C70707042A5DFDD06FE997F3BD33CF7 /* Build configuration list for PBXNativeTarget "Pods" */;
-			buildPhases = (
-				C1B91A693A50FBBA7EEE7D6DC172EA08 /* Sources */,
-				D2817A50880ADC5645EFED62F478D7DB /* Frameworks */,
-				47CC6BB00FFF0E7342C4BE3947E2D844 /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				7DC10675D09708A3AEA7C3C5890E4CC2 /* PBXTargetDependency */,
-			);
-			name = Pods;
-			productName = Pods;
-			productReference = 1B39ABAAAACACCDE5284A5450701ED6D /* Pods.framework */;
+			productReference = A6383F4CCE0C5E51658AA45ED76E1697 /* EKEventStoreWrapper.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -232,7 +230,7 @@
 		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0700;
+				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0700;
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
@@ -243,67 +241,71 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = CCA510CFBEA2D207524CDA0D73C3B561 /* Products */;
+			productRefGroup = B55D9F153534A259BEB989CCAD14F711 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				0F815EEE9608B14DCC74A9E06313C3AE /* EKEventStoreWrapper */,
-				60E022830D7992537E6CA2A6939F072E /* Pods */,
+				C60F21CCA1E7FEEDADB1210C7F83975E /* EKEventStoreWrapper */,
+				9BBF51671328072E3700C0F8BEB5DCF5 /* Pods-ExportToCalendar */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		92EDDA11C85C873D6B8F1A4DDA754B3D /* Sources */ = {
+		13E4A93B76B9A9A9E78359459F6C4504 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				325B1D9230FBC965F5EBC01F48EFF436 /* CalendarManager.swift in Sources */,
-				664E5B5C8E872E749A16875D2D93DACE /* EKEventStoreWrapper-dummy.m in Sources */,
+				968756D07AA5E125CCE66F2E574E591E /* CalendarManager.swift in Sources */,
+				37E5BD2F7919400084B5039C094ED93B /* EKEventStoreWrapper-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C1B91A693A50FBBA7EEE7D6DC172EA08 /* Sources */ = {
+		297749E8979C85F99AE2F72C2A16422A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B3BE990209FD37B815FF501295B98BD6 /* Pods-dummy.m in Sources */,
+				5C9D421B62AD867AB3724BE5ABEAEA0B /* Pods-ExportToCalendar-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		7DC10675D09708A3AEA7C3C5890E4CC2 /* PBXTargetDependency */ = {
+		6589497A928B439FF6FDC0A5BF787DB4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = EKEventStoreWrapper;
-			target = 0F815EEE9608B14DCC74A9E06313C3AE /* EKEventStoreWrapper */;
-			targetProxy = 9CD4A7ECEBF57A561671C304105614DC /* PBXContainerItemProxy */;
+			target = C60F21CCA1E7FEEDADB1210C7F83975E /* EKEventStoreWrapper */;
+			targetProxy = AA82A23A6C6DA2980CA9C7963994EF28 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		0851678838EC45461472C4A7EDD8FF10 /* Release */ = {
+		0A9902F529DFE0B86C2EE71C2D86A45B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8FAA405E30D9571F18EC932F2F2B7BC8 /* Pods.release.xcconfig */;
+			baseConfigurationReference = F82400F08A78024AF13E05E8710C2D90 /* Pods-ExportToCalendar.release.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods/Info.plist";
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-ExportToCalendar/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/Pods/Pods.modulemap";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-ExportToCalendar/Pods-ExportToCalendar.modulemap";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_NAME = Pods;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_ExportToCalendar;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -312,67 +314,11 @@
 			};
 			name = Release;
 		};
-		9AEE90BB76E5DF6570331C9E77FCDF0F /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6B49508BDC52B2621BDEE6FA3D71EEDC /* EKEventStoreWrapper-Private.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 0.9.8;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 0.9.8;
-				DYLIB_CURRENT_VERSION = "$(CURRENT_PROJECT_VERSION)";
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/EKEventStoreWrapper/EKEventStoreWrapper-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/EKEventStoreWrapper/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/EKEventStoreWrapper/EKEventStoreWrapper.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = EKEventStoreWrapper;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		9CE09E08F6A91ABB6E00D7DD7E15F711 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = E2C0C90C8E9576FBC6F94240AAA93AEB /* Pods.debug.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/Pods/Pods.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_NAME = Pods;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		A70CDAD61F90AC503C7D04CC22DA2923 /* Debug */ = {
+		47BEF9D903506B003EA5C2B249729489 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -387,10 +333,12 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
 					"DEBUG=1",
 					"$(inherited)",
 				);
@@ -408,17 +356,82 @@
 			};
 			name = Debug;
 		};
-		BEEB97659B082A306ED9A5FCC4690580 /* Debug */ = {
+		552F9C15B6D435184F5348710AC08B96 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6B49508BDC52B2621BDEE6FA3D71EEDC /* EKEventStoreWrapper-Private.xcconfig */;
+			baseConfigurationReference = 5478C78C0990B4B8A306F3205CAEDA03 /* Pods-ExportToCalendar.debug.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 0.9.8;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 0.9.8;
-				DYLIB_CURRENT_VERSION = "$(CURRENT_PROJECT_VERSION)";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-ExportToCalendar/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-ExportToCalendar/Pods-ExportToCalendar.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_ExportToCalendar;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		8F5D373DA2E54ED532228B3EAD5FD9B1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5E9208959A15C3B69EBB1FD3C9492508 /* EKEventStoreWrapper.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/EKEventStoreWrapper/EKEventStoreWrapper-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/EKEventStoreWrapper/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/EKEventStoreWrapper/EKEventStoreWrapper.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = EKEventStoreWrapper;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		A6DE0DF5AA2E273F807963DFBC15B897 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5E9208959A15C3B69EBB1FD3C9492508 /* EKEventStoreWrapper.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/EKEventStoreWrapper/EKEventStoreWrapper-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/EKEventStoreWrapper/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -436,10 +449,11 @@
 			};
 			name = Debug;
 		};
-		FB45FFD90572718D82AB9092B750F0CA /* Release */ = {
+		AAF678CED40D3499169D10F63CA0719E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -456,7 +470,10 @@
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_PREPROCESSOR_DEFINITIONS = "RELEASE=1";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -473,29 +490,29 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		0C70707042A5DFDD06FE997F3BD33CF7 /* Build configuration list for PBXNativeTarget "Pods" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				9CE09E08F6A91ABB6E00D7DD7E15F711 /* Debug */,
-				0851678838EC45461472C4A7EDD8FF10 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				A70CDAD61F90AC503C7D04CC22DA2923 /* Debug */,
-				FB45FFD90572718D82AB9092B750F0CA /* Release */,
+				47BEF9D903506B003EA5C2B249729489 /* Debug */,
+				AAF678CED40D3499169D10F63CA0719E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		7DF6D72B63258CA1DE855C43141C932B /* Build configuration list for PBXNativeTarget "EKEventStoreWrapper" */ = {
+		4769493BF4E1D5D2DC5507760CE39ABC /* Build configuration list for PBXNativeTarget "EKEventStoreWrapper" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				BEEB97659B082A306ED9A5FCC4690580 /* Debug */,
-				9AEE90BB76E5DF6570331C9E77FCDF0F /* Release */,
+				A6DE0DF5AA2E273F807963DFBC15B897 /* Debug */,
+				8F5D373DA2E54ED532228B3EAD5FD9B1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EB4553CC9CE09E1587AD3489311736E1 /* Build configuration list for PBXNativeTarget "Pods-ExportToCalendar" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				552F9C15B6D435184F5348710AC08B96 /* Debug */,
+				0A9902F529DFE0B86C2EE71C2D86A45B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

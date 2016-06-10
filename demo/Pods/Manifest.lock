@@ -1,21 +1,12 @@
 PODS:
-  - EKEventStoreWrapper (0.9.8)
+  - EKEventStoreWrapper (0.9.92)
 
 DEPENDENCIES:
-  - EKEventStoreWrapper (from `https://github.com/bphenriques/EKEventStoreWrapper.git`,
-    tag `0.9.8`)
-
-EXTERNAL SOURCES:
-  EKEventStoreWrapper:
-    :git: https://github.com/bphenriques/EKEventStoreWrapper.git
-    :tag: 0.9.8
-
-CHECKOUT OPTIONS:
-  EKEventStoreWrapper:
-    :git: https://github.com/bphenriques/EKEventStoreWrapper.git
-    :tag: 0.9.8
+  - EKEventStoreWrapper
 
 SPEC CHECKSUMS:
-  EKEventStoreWrapper: 88c2f031e789c6a533fe75018760573116413be2
+  EKEventStoreWrapper: d584d2ef0b8d5d6b407b16f6aa87b036e41f0feb
 
-COCOAPODS: 0.38.2
+PODFILE CHECKSUM: 5876e0e500f486471071cffd022724b72dcc2e2e
+
+COCOAPODS: 1.0.1

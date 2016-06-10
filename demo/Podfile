@@ -1,9 +1,12 @@
 workspace 'ExportToCalendar-workspace'
 xcodeproj 'ExportToCalendar.xcodeproj'
-
 platform :ios, '8.0'
 use_frameworks!
-link_with 'ExportToCalendar', 'ExportToCalendarTests'
 
-
-pod 'EKEventStoreWrapper', :git => 'https://github.com/bphenriques/EKEventStoreWrapper.git', :tag => '0.9.11'
+def pods
+    pod 'EKEventStoreWrapper'
+end
+ 
+target 'ExportToCalendar' do
+    pods
+end

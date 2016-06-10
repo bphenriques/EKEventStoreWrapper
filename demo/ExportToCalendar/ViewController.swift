@@ -22,7 +22,7 @@ class ViewController: UIViewController {
     }
     
     private func refreshButtons() {
-        if let c = calendarManager.calendar{
+        if calendarManager.calendar != nil {
             calendarName.setTitle(CalendarTitle, forState: .Normal)
             createEvent.hidden = false
             clearEvents.hidden = false
@@ -40,7 +40,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func calendarNameHandler(sender: AnyObject){
-        if let calendar = calendarManager.calendar {
+        if calendarManager.calendar != nil {
             let alert = UIAlertController(title: DeleteCalendarAlertText.title, message: DeleteCalendarAlertText.message, preferredStyle: .Alert)
             let OKAction = UIAlertAction(title: AlertActions.yes, style: .Destructive, handler: { _ in
                 self.removeCalendar()
@@ -76,7 +76,7 @@ extension ViewController: UITableViewDataSource {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let event = events[indexPath.row]
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("eventCell") as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("eventCell")!
         cell.textLabel?.text = event.title
         
         let formatter = NSDateFormatter()
@@ -99,17 +99,11 @@ extension ViewController: UITableViewDelegate {
         if (editingStyle == UITableViewCellEditingStyle.Delete) {
             self.calendarManager.requestAuthorization() {(error: NSError?) in
                 if let theError = error {
-                    println("Authorization denied due to: \(theError.localizedDescription)")
+                    print("Authorization denied due to: \(theError.localizedDescription)")
                     UIApplication.sharedApplication().openURL(NSURL(string:UIApplicationOpenSettingsURLString)!)
                 }else {
                     let event = self.events[indexPath.row]
-                    self.calendarManager.removeEvent(event.eventIdentifier) {(wasRemoved: Bool, error: NSError?) in
-                        if wasRemoved {
-                            self.refreshEvents()
-                        }else {
-                            println("Coudn't remove event because \(error?.localizedDescription)")
-                        }
-                    }
+                    self.calendarManager.removeEvent(event.eventIdentifier, completion: {() in self.refreshEvents()})
                 }
             }
         }
@@ -119,9 +113,10 @@ extension ViewController: UITableViewDelegate {
 extension ViewController {
     
     private func refreshEvents() {
+                
         self.calendarManager.requestAuthorization() {(error: NSError?) in
             if let theError = error {
-                println("Authorization denied due to: \(theError.localizedDescription)")
+                print("Authorization denied due to: \(theError.localizedDescription)")
                 self.openSettings()
             }else {
                 let today = NSDate()
