@@ -1,6 +1,9 @@
 # EKEventStoreWrapper
 EKEventStoreWrapper
 
+
+Warning: as of last tag, the code is being remodeled due to some issues regarding default calendar. I will as well use exceptions to reduce the necessary code. Sorry for the inconvinience.
+
 The goal is to simplify EKEventStore usage:
 ```swift
 
