@@ -1,11 +1,11 @@
 PODS:
-  - EKEventStoreWrapper (0.9.92)
+  - EKEventStoreWrapper (0.9.93)
 
 DEPENDENCIES:
   - EKEventStoreWrapper
 
 SPEC CHECKSUMS:
-  EKEventStoreWrapper: d584d2ef0b8d5d6b407b16f6aa87b036e41f0feb
+  EKEventStoreWrapper: 89b097749d4178b25302da899ad92e02acc16711
 
 PODFILE CHECKSUM: 5876e0e500f486471071cffd022724b72dcc2e2e
 

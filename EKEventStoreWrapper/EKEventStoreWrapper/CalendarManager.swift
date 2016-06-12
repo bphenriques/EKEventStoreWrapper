@@ -41,10 +41,14 @@ public class CalendarManager{
         
         - parameter `completion:: (error: NSError?) -> ()` block of code
     */
-    public func requestAuthorization(completion: () -> ()) throws{
+    public func requestAuthorization(completion: () throws -> ()) throws{
         switch EKEventStore.authorizationStatusForEntityType(EKEntityType.Event) {
         case .Authorized:
-            completion()
+            do {
+                try completion()
+            }catch let error as NSError{
+                throw error
+            }
         case .Denied:
             throw getDeniedAccessToCalendarError()
         case .NotDetermined:

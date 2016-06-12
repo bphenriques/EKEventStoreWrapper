@@ -97,14 +97,15 @@ extension ViewController: UITableViewDelegate {
     
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if (editingStyle == UITableViewCellEditingStyle.Delete) {
-            self.calendarManager.requestAuthorization() {(error: NSError?) in
-                if let theError = error {
-                    print("Authorization denied due to: \(theError.localizedDescription)")
-                    UIApplication.sharedApplication().openURL(NSURL(string:UIApplicationOpenSettingsURLString)!)
-                }else {
+            
+            do{
+                try self.calendarManager.requestAuthorization() {() in
                     let event = self.events[indexPath.row]
                     self.calendarManager.removeEvent(event.eventIdentifier, completion: {() in self.refreshEvents()})
                 }
+            }catch let error as NSError{
+                print("Authorization denied due to: \(error.localizedDescription)")
+                UIApplication.sharedApplication().openURL(NSURL(string:UIApplicationOpenSettingsURLString)!)
             }
         }
     }
@@ -113,26 +114,21 @@ extension ViewController: UITableViewDelegate {
 extension ViewController {
     
     private func refreshEvents() {
-                
-        self.calendarManager.requestAuthorization() {(error: NSError?) in
-            if let theError = error {
-                print("Authorization denied due to: \(theError.localizedDescription)")
-                self.openSettings()
-            }else {
+        do{
+            try self.calendarManager.requestAuthorization() {() in
                 let today = NSDate()
                 let twoYears = Double(2 * 366 * 24 * 60 * 60)
                 let start = today.dateByAddingTimeInterval(-twoYears)
                 let end = today.dateByAddingTimeInterval(twoYears)
                 
-                let result = self.calendarManager.getEvents(start, endDate: end)
+                let result = try self.calendarManager.getEvents(start, endDate: end)
                 
                 self.events = result.events
                 self.eventsTable.reloadData()
-                
-                if let error = result.error {
-                    println(error.localizedDescription)
-                }
             }
+        }catch let error as NSError{
+            print("Authorization denied due to: \(error.localizedDescription)")
+            self.openSettings()
         }
     }
     
