@@ -1,4 +1,4 @@
-#### Warning: Use tag 0.9.12. As of last tag, the code is being re-done from scratch for the best of mankind! Sorry for the inconvinience.
+#### Warning: Use tag 0.9.12. As of last tag, the code is being re-done from scratch for the best of mankind! Sorry for the inconvinience. In retrospective, I could have done better :)
 
 ___
 
